@@ -2,70 +2,70 @@
 from pystyle import Colors, Colorate, Center, Box
 import json
 
-def load_tools_status(filename='check.json'):
+def check_install(filename='check.json'):
     with open(filename, 'r') as f:
         return json.load(f)
 
-def is_tool_installed(tool_id):
-    tools_status = load_tools_status()
+def tool_installed(tool_id):
+    tools_status = check_install()
     return tools_status['tools'].get(tool_id, False)
 
 def recon_ng():
-    if is_tool_installed("1"):
+    if tool_installed("1"):
         print("Running recon-ng...")
     else:
         print("Recon-ng is not installed. Please install it.")
 
 def nikto():
-    if is_tool_installed("2"):
+    if tool_installed("2"):
         print("Running Nikto...")
     else:
         print("Nikto is not installed. Please install it.")
 
 def dns_recon():
-    if is_tool_installed("3"):
+    if tool_installed("3"):
         print("Running DNSrecon...")
     else:
         print("DNS Recon is not installed. Please install it.")
 
 def udpscan():
-    if is_tool_installed("4"):
+    if tool_installed("4"):
         print("Running UDP Scan...")
     else:
         print("UDP Scan is not installed. Please install it.")
 
 def infoga():
-    if is_tool_installed("5"):
+    if tool_installed("5"):
         print("Running Infoga...")
     else:
         print("Infoga is not installed. Please install it.")
 
 def peepler():
-    if is_tool_installed("6"):
+    if tool_installed("6"):
         print("Running Peepler...")
     else:
         print("Peepler is not installed. Please install it.")
 
 def intel_base():
-    if is_tool_installed("7"):
+    if tool_installed("7"):
         print("Running IntelBase...")
     else:
         print("IntelBase is not installed. Please install it.")
 
 def xsstrike():
-    if is_tool_installed("8"):
+    if tool_installed("8"):
         print("Running XSStrike...")
     else:
         print("XSStrike is not installed. Please install it.")
 
 def openssl():
-    if is_tool_installed("12"):
+    if tool_installed("12"):
         print("Running OpenSSL...")
     else:
         print("OpenSSL is not installed. Please install it.")
 
 def gnupg():
-    if is_tool_installed("13"):
+    if tool_installed("13"):
         print("Running GnuPG...")
     else:
         print("GnuPG is not installed. Please install it.")
