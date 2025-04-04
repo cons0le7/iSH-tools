@@ -39,7 +39,7 @@ def install_tool(tool_sh):
 def recon_ng():
     if tool_installed("1"):
         try:
-            print(Colors.yellow + "Starting Shell...")
+            print(Colors.yellow + "Executing Recon-ng...")
             print(Colors.cyan + "Ctrl+C to exit.")
             subprocess.run(['recon-ng']) 
             sys.exit() 
@@ -65,7 +65,7 @@ def nikto():
     if tool_installed("2"):
         try:
             print(Colors.yellow + "Starting shell in ./tools/nikto/program \nCtrl+C once to stop operations within shell and again to exit.")
-            print(Colors.cyan + "Usage Example: perl nikto.pl -h http://www.example.com")
+            print(Colors.cyan + "Example Usage: perl nikto.pl -h http://www.example.com")
             os.chdir('./tools/nikto/program')
             subprocess.call(['bash']) 
             sys.exit() 
@@ -88,9 +88,27 @@ def nikto():
                     
 def dns_recon():
     if tool_installed("3"):
-        print("Running DNSrecon...")
+        try:
+            print(Colors.yellow + "Executing DNSrecon... ")
+            print(Colors.cyan + "Example Usage: dnsrecon -d website.com")
+            subprocess.run(['dnsrecon']) 
+            sys.exit() 
+        except Exception as e:
+            print(f"An error occurred while running the script: {e}")
     else:
-        print("DNS Recon is not installed. Please install it.")
+        install_option = input(Colors.green + " DNSrecon is not installed. Install now? (y/n):\n >>> ")
+        install_option = install_option.strip().lower()
+        if install_option == 'y':
+            tool_sh = 'dnsrecon.sh'
+            install_tool(tool_sh)
+            install_true("3")
+            input(Colors.green + " Press Enter to run script.\n >>> ")
+            dns_recon()
+        elif install_option == 'n':
+            main()
+        else:
+            print(Colors.green + " Invalid choice. Enter 'y' or 'n'.\n >>> ")
+            dns_recon()
 
 def udpscan():
     if tool_installed("4"):
