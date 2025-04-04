@@ -1,6 +1,17 @@
 
 from pystyle import Colors, Colorate, Center, Box
 import json
+import subprocess
+import os
+import sys 
+
+def install_true(key_to_update):
+    with open('check.json', 'r') as file:
+        data = json.load(file)
+    if key_to_update in data.get('tools', {}) and data['tools'][key_to_update] is False:
+        data['tools'][key_to_update] = True
+    with open('check.json', 'w') as file:
+        json.dump(data, file, indent=4)
 
 def check_install(filename='check.json'):
     with open(filename, 'r') as f:
@@ -10,18 +21,62 @@ def tool_installed(tool_id):
     tools_status = check_install()
     return tools_status['tools'].get(tool_id, False)
 
+def install_tool(tool_sh):
+    script_path = os.path.join(os.getcwd(), 'tools', tool_sh)
+    try:
+        with subprocess.Popen(['bash', script_path], stdout=subprocess.PIPE, text=True) as process:
+            while True:
+                output = process.stdout.readline()
+                if output == '' and process.poll() is not None:
+                    break
+                if output:
+                    print(output.strip())
+    except FileNotFoundError:
+        print(f" The script '{script_path}' was not found.")
+    except Exception as e:
+        print(f" An unexpected error occurred: {e}")
+        
 def recon_ng():
     if tool_installed("1"):
-        print("Running recon-ng...")
+        print(" Running recon-ng...")
     else:
-        print("Recon-ng is not installed. Please install it.")
+        install_option = input(Colors.green + " Recon-ng is not installed. Install now? (y/n):\n >>> ")
+        install_option = install_option.strip().lower()
+        if install_option == 'y': 
+            tool_sh = 'recon.sh'
+            install_tool(tool_sh)
+        elif install_option == 'n': 
+            main() 
+        else: 
+            print(Colors.green + " Invalid choice. Enter 'y' or 'n'. \n >>> ")
+            recon_ng()
+
 
 def nikto():
     if tool_installed("2"):
-        print("Running Nikto...")
+        try:
+            print(Colors.yellow + "Starting shell in ./tools/nikto/program \nCtrl+C once to stop operations within shell and again to exit.")
+            print(Colors.cyan + "Usage Example: perl nikto.pl -h http://www.example.com")
+            os.chdir('./tools/nikto/program')
+            subprocess.call(['bash']) 
+            sys.exit() 
+        except Exception as e:
+            print(f"An error occurred while running the script: {e}")
     else:
-        print("Nikto is not installed. Please install it.")
-
+        install_option = input(Colors.green + " Nikto is not installed. Install now? (y/n):\n >>> ")
+        install_option = install_option.strip().lower()
+        if install_option == 'y':
+            tool_sh = 'nikto.sh'
+            install_tool(tool_sh)
+            install_true("2")
+            input(Colors.green + " Press Enter to run script.\n >>> ")
+            nikto()
+        elif install_option == 'n':
+            main()
+        else:
+            print(Colors.green + " Invalid choice. Enter 'y' or 'n'.\n >>> ")
+            nikto()
+                    
 def dns_recon():
     if tool_installed("3"):
         print("Running DNSrecon...")
@@ -69,7 +124,6 @@ def gnupg():
         print("Running GnuPG...")
     else:
         print("GnuPG is not installed. Please install it.")
-
 
 
 def help_menu():
@@ -125,7 +179,7 @@ def main():
     }
 
     while True:
-        option = input(Colors.green + " >>> ")
+        option = input(Colors.green + " └──> ")
         if option in options:
             options[option]()
         else:
