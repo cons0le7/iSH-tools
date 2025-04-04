@@ -204,9 +204,29 @@ def peepler():
 
 def intel_base():
     if tool_installed("7"):
-        print("Running IntelBase...")
+        try:
+            print(Colors.yellow + "\nStarting shell in ./tools/IntelBase-CLI \nUse option 3 to exit program, then type 'exit' to exit shell.")
+            print(Colors.green + "")
+            os.chdir('./tools/IntelBase-CLI')
+            subprocess.run(['python3','intelbase.py']) 
+            subprocess.call(['bash']) 
+            sys.exit() 
+        except Exception as e:
+            print(f"An error occurred while running the script: {e}")
     else:
-        print("IntelBase is not installed. Please install it.")
+        install_option = input(Colors.green + " IntelBase is not installed. Install now? (y/n):\n >>> ")
+        install_option = install_option.strip().lower()
+        if install_option == 'y':
+            tool_sh = 'intelbase.sh'
+            install_tool(tool_sh)
+            install_true("7")
+            input(Colors.green + " Press Enter to run script.\n >>> ")
+            intel_base()
+        elif install_option == 'n':
+            main()
+        else:
+            print(Colors.green + " Invalid choice. Enter 'y' or 'n'.\n >>> ")
+            intel_base()
 
 def xsstrike():
     if tool_installed("8"):
