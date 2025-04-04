@@ -1,5 +1,5 @@
 
-from pystyle import Colors, Colorate, Center, Box
+from pystyle import Colors, Colorate
 import json
 import subprocess
 import os
@@ -153,12 +153,6 @@ def udpscan():
             
 def infoga():
     if tool_installed("5"):
-        print("Running Infoga...")
-    else:
-        print("Infoga is not installed. Please install it.")
-
-def infoga():
-    if tool_installed("5"):
         try:
             print(Colors.yellow + "Starting shell in ./tools/Infoga-py3 \nType 'exit' to exit.")
             print(Colors.cyan + "Example Usage: python3 infoga.py --target website.com --source all")
@@ -185,9 +179,28 @@ def infoga():
 
 def peepler():
     if tool_installed("6"):
-        print("Running Peepler...")
+        try:
+            print(Colors.yellow + "\nStarting shell in ./tools/peepler-iSH \nEnter 'exit' once to stop script, twice to exit shell.")
+            os.chdir('./tools/peepler-iSH')
+            subprocess.run(['python3','main.py']) 
+            subprocess.call(['bash']) 
+            sys.exit() 
+        except Exception as e:
+            print(f"An error occurred while running the script: {e}")
     else:
-        print("Peepler is not installed. Please install it.")
+        install_option = input(Colors.green + " Peepler is not installed. Install now? (y/n):\n >>> ")
+        install_option = install_option.strip().lower()
+        if install_option == 'y':
+            tool_sh = 'peepler.sh'
+            install_tool(tool_sh)
+            install_true("6")
+            input(Colors.green + " Press Enter to run script.\n >>> ")
+            peepler()
+        elif install_option == 'n':
+            main()
+        else:
+            print(Colors.green + " Invalid choice. Enter 'y' or 'n'.\n >>> ")
+            peepler()
 
 def intel_base():
     if tool_installed("7"):
@@ -212,6 +225,12 @@ def gnupg():
         print("Running GnuPG...")
     else:
         print("GnuPG is not installed. Please install it.")
+
+def help_menu():
+    pass
+
+def report_issue():
+    pass
 
 
 def help_menu():
