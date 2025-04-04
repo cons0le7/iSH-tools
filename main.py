@@ -157,6 +157,32 @@ def infoga():
     else:
         print("Infoga is not installed. Please install it.")
 
+def infoga():
+    if tool_installed("5"):
+        try:
+            print(Colors.yellow + "Starting shell in ./tools/Infoga-py3 \nType 'exit' to exit.")
+            print(Colors.cyan + "Example Usage: python3 infoga.py --target website.com --source all")
+            os.chdir('./tools/Infoga-py3')
+            subprocess.run(['python3','infoga.py']) 
+            subprocess.call(['bash']) 
+            sys.exit() 
+        except Exception as e:
+            print(f"An error occurred while running the script: {e}")
+    else:
+        install_option = input(Colors.green + " Infoga is not installed. Install now? (y/n):\n >>> ")
+        install_option = install_option.strip().lower()
+        if install_option == 'y':
+            tool_sh = 'infoga.sh'
+            install_tool(tool_sh)
+            install_true("5")
+            input(Colors.green + " Press Enter to run script.\n >>> ")
+            infoga()
+        elif install_option == 'n':
+            main()
+        else:
+            print(Colors.green + " Invalid choice. Enter 'y' or 'n'.\n >>> ")
+            infoga()
+
 def peepler():
     if tool_installed("6"):
         print("Running Peepler...")
