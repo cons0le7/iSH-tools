@@ -256,10 +256,29 @@ def xsstrike():
 
 def openssl():
     if tool_installed("12"):
-        print("Running OpenSSL...")
+        try:
+            print(Colors.yellow + "\nStarting shell... \nType 'exit' to exit.")
+            print(Colors.green + "")
+            subprocess.run(['openssl','help']) 
+            subprocess.call(['bash']) 
+            sys.exit() 
+        except Exception as e:
+            print(f"An error occurred while running the script: {e}")
     else:
-        print("OpenSSL is not installed. Please install it.")
-
+        install_option = input(Colors.green + " OpenSSL is not installed. Install now? (y/n):\n >>> ")
+        install_option = install_option.strip().lower()
+        if install_option == 'y':
+            tool_sh = 'openssl.sh'
+            install_tool(tool_sh)
+            install_true("12")
+            input(Colors.green + " Press Enter to run script.\n >>> ")
+            openssl()
+        elif install_option == 'n':
+            main()
+        else:
+            print(Colors.green + " Invalid choice. Enter 'y' or 'n'.\n >>> ")
+            openssl()
+            
 def gnupg():
     if tool_installed("13"):
         print("Running GnuPG...")
