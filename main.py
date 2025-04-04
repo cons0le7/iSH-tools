@@ -35,20 +35,29 @@ def install_tool(tool_sh):
         print(f" The script '{script_path}' was not found.")
     except Exception as e:
         print(f" An unexpected error occurred: {e}")
-        
+
 def recon_ng():
     if tool_installed("1"):
-        print(" Running recon-ng...")
+        try:
+            print(Colors.yellow + "Starting Shell...")
+            print(Colors.cyan + "Ctrl+C to exit.")
+            subprocess.run(['recon-ng']) 
+            sys.exit() 
+        except Exception as e:
+            print(f"An error occurred while running the script: {e}")
     else:
         install_option = input(Colors.green + " Recon-ng is not installed. Install now? (y/n):\n >>> ")
         install_option = install_option.strip().lower()
-        if install_option == 'y': 
-            tool_sh = 'recon.sh'
+        if install_option == 'y':
+            tool_sh = 'recon-ng.sh'
             install_tool(tool_sh)
-        elif install_option == 'n': 
-            main() 
-        else: 
-            print(Colors.green + " Invalid choice. Enter 'y' or 'n'. \n >>> ")
+            install_true("1")
+            input(Colors.green + " Press Enter to run script.\n >>> ")
+            recon_ng()
+        elif install_option == 'n':
+            main()
+        else:
+            print(Colors.green + " Invalid choice. Enter 'y' or 'n'.\n >>> ")
             recon_ng()
 
 
