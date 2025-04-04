@@ -230,9 +230,29 @@ def intel_base():
 
 def xsstrike():
     if tool_installed("8"):
-        print("Running XSStrike...")
+        try:
+            print(Colors.yellow + "\nStarting shell in ./tools/XSStrike \nType 'exit' to exit.")
+            print(Colors.green + "")
+            os.chdir('./tools/XSStrike')
+            subprocess.run(['python3','xsstrike.py']) 
+            subprocess.call(['bash']) 
+            sys.exit() 
+        except Exception as e:
+            print(f"An error occurred while running the script: {e}")
     else:
-        print("XSStrike is not installed. Please install it.")
+        install_option = input(Colors.green + " XSStrike is not installed. Install now? (y/n):\n >>> ")
+        install_option = install_option.strip().lower()
+        if install_option == 'y':
+            tool_sh = 'xsstrike.sh'
+            install_tool(tool_sh)
+            install_true("8")
+            input(Colors.green + " Press Enter to run script.\n >>> ")
+            xsstrike()
+        elif install_option == 'n':
+            main()
+        else:
+            print(Colors.green + " Invalid choice. Enter 'y' or 'n'.\n >>> ")
+            xsstrike()
 
 def openssl():
     if tool_installed("12"):
@@ -283,7 +303,7 @@ def main():
 ║      └── [7] IntelBase *    ║                                ║
 ║                             ║  Options                       ║
 ║  Web-App Testing            ║      ├── [?] Help              ║
-║      └── [8] xsstrike       ║      └── [!] Report an Issue   ║
+║      └── [8] XSStrike       ║      └── [!] Report an Issue   ║
 ╠═════════════════════════════╩════════════════════════════════╣
 ║ * = API token required [$]                                   ║
 ╚══════════════════════════════════════════════════════════════╝
