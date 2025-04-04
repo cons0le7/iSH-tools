@@ -112,10 +112,45 @@ def dns_recon():
 
 def udpscan():
     if tool_installed("4"):
-        print("Running UDP Scan...")
+        print(Colors.cyan + "Make a selection: ")
+        udpscan_choice = input(Colors.cyan + "\n[1] Prompt mode \n[2] CLI mode \n   >>>   ")
+        if udpscan_choice == '1':             
+            try:
+                print(Colors.yellow + "Executing UDPSCAN... ")
+                print(Colors.cyan + "Ctrl+C to exit.")
+                os.chdir('./tools/UDPSCAN')
+                subprocess.run(['python3','UDPSCAN.py']) 
+                sys.exit() 
+            except Exception as e:
+                print(f"An error occurred while running the script: {e}")
+        elif udpscan_choice == '2':
+            try:
+                print(Colors.yellow + "Starting shell in ./tools/UDPSCAN ")
+                print(Colors.cyan + "Help: python3 UDPSCAN.py -h")
+                print(Colors.cyan + "Example Usage: python3 UDPSCAN.py -d example.com -p 1-1024")
+                os.chdir('./tools/UDPSCAN')
+                subprocess.call(['bash']) 
+                sys.exit() 
+            except Exception as e:
+                print(f"An error occurred while running the script: {e}")
+        else: 
+            print(Colors.red + "Invalid choice. Enter 1 or 2.")
+            udpscan()
     else:
-        print("UDP Scan is not installed. Please install it.")
-
+        install_option = input(Colors.green + " UDPSCAN is not installed. Install now? (y/n):\n >>> ")
+        install_option = install_option.strip().lower()
+        if install_option == 'y':
+            tool_sh = 'UDPSCAN.sh'
+            install_tool(tool_sh)
+            install_true("4")
+            input(Colors.green + " Press Enter to run script.\n >>> ")
+            udpscan()
+        elif install_option == 'n':
+            main()
+        else:
+            print(Colors.green + " Invalid choice. Enter 'y' or 'n'.\n >>> ")
+            udpscan()
+            
 def infoga():
     if tool_installed("5"):
         print("Running Infoga...")
