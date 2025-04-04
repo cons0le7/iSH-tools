@@ -40,7 +40,7 @@ def recon_ng():
     if tool_installed("1"):
         try:
             print(Colors.yellow + "Executing Recon-ng...")
-            print(Colors.cyan + "Ctrl+C to exit.")
+            print(Colors.cyan + "Type 'exit' to exit.")
             subprocess.run(['recon-ng']) 
             sys.exit() 
         except Exception as e:
@@ -126,10 +126,10 @@ def udpscan():
         elif udpscan_choice == '2':
             try:
                 print(Colors.yellow + "Starting shell in ./tools/UDPSCAN ")
-                print(Colors.cyan + "Help: python3 UDPSCAN.py -h")
-                print(Colors.cyan + "Example Usage: python3 UDPSCAN.py -d example.com -p 1-1024")
+                print(Colors.yellow + "Type 'exit' to exit. ")
                 os.chdir('./tools/UDPSCAN')
-                subprocess.call(['bash']) 
+                subprocess.run(['python3','UDPSCAN.py','-h']) 
+                subprocess.call(['bash'])
                 sys.exit() 
             except Exception as e:
                 print(f"An error occurred while running the script: {e}")
