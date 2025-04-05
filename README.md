@@ -1,6 +1,8 @@
 # iSH-tools
 Security toolkit for iSH Shell.
 
+When I first downloaded iSH Shell, I searched everywhere for tools related to cybersecurity and ethical hacking but found very few tools that actually worked. I spent about a year learning iSH, familiarizing myself with Alpine, testing different tools and modifying their installs to work within iSH, as well as  writing some of my own iSH compatible scripts. I have decided to put together a neatly packaged and easy to use toolkit for others who may be looking for the same thing. I plan on updating this whenever I find more useful things. Recommendations and contributions are always welcome!
+
 ![Image](https://github.com/user-attachments/assets/cd5c653c-e553-4ae8-941a-a7705195edf1) 
 
 ## Single-Paste Install: 
