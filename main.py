@@ -315,10 +315,67 @@ def install_all():
     install_true("6")
     install_true("7")
     install_true("8")
+    install_true("9")
+    install_true("10")
     install_true("12")
     install_true("13")
     input(Colors.green +" >>> ")
     main()
+
+def zipbrute(): 
+    if tool_installed("9"):
+        try:
+            print(Colors.yellow + "\nStarting shell in ./tools/FileBruteforcers \nCtrl+C to exit shell.")
+            print(Colors.green + "")
+            os.chdir('./tools/FileBruteforcers')
+            subprocess.run(['python3','zipbrute.py']) 
+            subprocess.call(['bash']) 
+            sys.exit() 
+        except Exception as e:
+            print(f"An error occurred while running the script: {e}")
+    else:
+        install_option = input(Colors.green + " FileBruteForcers is not installed. Install now? (y/n):\n >>> ")
+        install_option = install_option.strip().lower()
+        if install_option == 'y':
+            tool_sh = 'filebruteforcers.sh'
+            install_tool(tool_sh)
+            install_true("9")
+            install_true("10")
+            input(Colors.green + " Press Enter to run script.\n >>> ")
+            zipbrute()
+        elif install_option == 'n':
+            main()
+        else:
+            print(Colors.green + " Invalid choice. Enter 'y' or 'n'.\n >>> ")
+            zipbrute() 
+
+def pdfbrute(): 
+    if tool_installed("10"):
+        try:
+            print(Colors.yellow + "\nStarting shell in ./tools/FileBruteforcers \nCtrl+C to exit shell.")
+            print(Colors.green + "")
+            os.chdir('./tools/FileBruteforcers')
+            subprocess.run(['python3','pdfbrute.py']) 
+            subprocess.call(['bash']) 
+            sys.exit() 
+        except Exception as e:
+            print(f"An error occurred while running the script: {e}")
+    else:
+        install_option = input(Colors.green + " FileBruteForcers is not installed. Install now? (y/n):\n >>> ")
+        install_option = install_option.strip().lower()
+        if install_option == 'y':
+            tool_sh = 'filebruteforcers.sh'
+            install_tool(tool_sh)
+            install_true("9")
+            install_true("10")
+            input(Colors.green + " Press Enter to run script.\n >>> ")
+            pdfbrute()
+        elif install_option == 'n':
+            main()
+        else:
+            print(Colors.green + " Invalid choice. Enter 'y' or 'n'.\n >>> ")
+            pdfbrute()  
+
     
 def help_menu():
     subprocess.call(['clear'])
@@ -396,8 +453,8 @@ def main():
 ║                https://github.com/cons0le7                   ║   
 ╠═════════════════════════════╦════════════════════════════════╣
 ║  Reconnaissance             ║  Password Cracking             ║
-║      ├── [1] Recon-ng       ║      ├── [9]                   ║
-║      ├── [2] Nikto          ║      ├── [10]                  ║
+║      ├── [1] Recon-ng       ║      ├── [9] ZipBrute (FBF)    ║
+║      ├── [2] Nikto          ║      ├── [10] PDFBrute (FBF)   ║
 ║      ├── [3] DNSrecon       ║      └── [11]                  ║
 ║      └── [4] UDPSCAN        ║                                ║
 ║                             ║  Cryptography                  ║
@@ -423,6 +480,8 @@ def main():
         "6": peepler,
         "7": intel_base,
         "8": xsstrike,
+        "9": zipbrute,
+        "10": pdfbrute, 
         "12": openssl,
         "13": gnupg,
         "i": install_all,
