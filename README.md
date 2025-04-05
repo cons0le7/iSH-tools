@@ -34,3 +34,6 @@ python3 main.py
 [PDFbrute](https://github.com/midwestcoder2020/FileBruteforcers) 
 [OpenSSL](http://openssl-library.org) 
 [GnuPG](https://gnupg.org)
+
+## Disclaimer: 
+These tools are intended to be used legally and ethically. Do not use them against anything that you do not own or do not have permission to use them against. I am not responsible for any use or misuse of these tools. 
