@@ -317,13 +317,14 @@ def install_all():
     install_true("8")
     install_true("9")
     install_true("10")
+    install_true("11")
     install_true("12")
     install_true("13")
     input(Colors.green +" >>> ")
     main()
 
 def zipbrute(): 
-    if tool_installed("9"):
+    if tool_installed("10"):
         try:
             print(Colors.yellow + "\nStarting shell in ./tools/FileBruteforcers \nCtrl+C to exit shell.")
             print(Colors.green + "")
@@ -339,8 +340,8 @@ def zipbrute():
         if install_option == 'y':
             tool_sh = 'filebruteforcers.sh'
             install_tool(tool_sh)
-            install_true("9")
             install_true("10")
+            install_true("11")
             input(Colors.green + " Press Enter to run script.\n >>> ")
             zipbrute()
         elif install_option == 'n':
@@ -350,7 +351,7 @@ def zipbrute():
             zipbrute() 
 
 def pdfbrute(): 
-    if tool_installed("10"):
+    if tool_installed("11"):
         try:
             print(Colors.yellow + "\nStarting shell in ./tools/FileBruteforcers \nCtrl+C to exit shell.")
             print(Colors.green + "")
@@ -366,8 +367,8 @@ def pdfbrute():
         if install_option == 'y':
             tool_sh = 'filebruteforcers.sh'
             install_tool(tool_sh)
-            install_true("9")
             install_true("10")
+            install_true("11")
             input(Colors.green + " Press Enter to run script.\n >>> ")
             pdfbrute()
         elif install_option == 'n':
@@ -376,6 +377,8 @@ def pdfbrute():
             print(Colors.green + " Invalid choice. Enter 'y' or 'n'.\n >>> ")
             pdfbrute()  
 
+def sqlmap(): 
+    pass
     
 def help_menu():
     subprocess.call(['clear'])
@@ -453,18 +456,19 @@ def main():
 ║                https://github.com/cons0le7                   ║   
 ╠═════════════════════════════╦════════════════════════════════╣
 ║  Reconnaissance             ║  Password Cracking             ║
-║      ├── [1] Recon-ng       ║      ├── [9] ZipBrute (FBF)    ║
-║      ├── [2] Nikto          ║      ├── [10] PDFBrute (FBF)   ║
-║      ├── [3] DNSrecon       ║      └── [11]                  ║
+║      ├── [1] Recon-ng       ║      ├── [10] ZipBrute (FBF)   ║
+║      ├── [2] Nikto          ║      └── [11] PDFBrute (FBF)   ║
+║      ├── [3] DNSrecon       ║                                ║
 ║      └── [4] UDPSCAN        ║                                ║
 ║                             ║  Cryptography                  ║
 ║  OSINT                      ║      ├── [12] OpenSSL          ║
 ║      ├── [5] Infoga         ║      └── [13] GnuPG            ║
 ║      ├── [6] Peepler        ║                                ║
-║      └── [7] IntelBase *    ║  Options                       ║
-║                             ║      ├── [i] Install All       ║
-║  Web-App Testing            ║      ├── [?] Help              ║
-║      └── [8] XSStrike       ║      └── [!] Report an Issue   ║
+║      └── [7] IntelBase *    ║                                ║
+║                             ║  Options                       ║
+║  Web-App Testing            ║      ├── [i] Install All       ║
+║      ├── [8] XSStrike       ║      ├── [?] Help              ║
+║      └── [9] sqlmap         ║      └── [!] Report an Issue   ║
 ╠═════════════════════════════╩════════════════════════════════╣
 ║ * = API token required [$]                                   ║
 ╚══════════════════════════════════════════════════════════════╝
@@ -480,8 +484,9 @@ def main():
         "6": peepler,
         "7": intel_base,
         "8": xsstrike,
-        "9": zipbrute,
-        "10": pdfbrute, 
+        "9": sqlmap,
+        "10": zipbrute,
+        "11": pdfbrute, 
         "12": openssl,
         "13": gnupg,
         "i": install_all,
