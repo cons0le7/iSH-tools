@@ -1,9 +1,8 @@
-
 from pystyle import Colors, Colorate
-import json
 import subprocess
-import os
+import json
 import sys 
+import os
 
 def install_true(key_to_update):
     with open('check.json', 'r') as file:
@@ -305,15 +304,49 @@ def gnupg():
             gnupg()
             
 def help_menu():
-    pass
-
-def report_issue():
-    pass
-
-
-def help_menu():
-    pass
-
+    helpscreen = r"""
+╔══════════════════════════════════════════════════════════════╗                                                                                                                                 
+║                           <Help>                             ║   
+╠══════════════╦═══════════════════════════════════════════════╣
+║     Tool     ║                 Documentation                 ║
+╠══════════════╬═══════════════════════════════════════════════╣
+║ Recon-ng     ║ https://github.com/lanmaster53/recon-ng/wiki  ║
+╠══════════════╬═══════════════════════════════════════════════╣
+║ Nikto        ║ https://github.com/sullo/nikto/wiki           ║
+╠══════════════╬═══════════════════════════════════════════════╣
+║              ║ https://github.com/darkoperator/dnsrecon      ║
+║ DNSrecon     ╠═══════════════════════════════════════════════╣
+║              ║ https://tinyurl.com/DNSrecon-cheat-sheet      ║
+╠══════════════╬═══════════════════════════════════════════════╣
+║ UDPSCAN      ║ https://github.com/cons0le7/UDPSCAN           ║
+╠══════════════╬═══════════════════════════════════════════════╣
+║ Infoga       ║ https://github.com/The404Hacking/Infoga       ║
+╠══════════════╬═══════════════════════════════════════════════╣
+║ Peepler      ║ https://github.com/scarlmao/peepler           ║
+╠══════════════╬═══════════════════════════════════════════════╣
+║ IntelBase    ║ https://github.com/cons0le7/IntelBase-CLI     ║
+╠══════════════╬═══════════════════════════════════════════════╣
+║ XSStrike     ║ https://github.com/s0md3v/XSStrike/wiki/Usage ║
+╠══════════════╬═══════════════════════════════════════════════╣
+║ OpenSSL      ║ https://docs.openssl.org/master               ║
+╠══════════════╬═══════════════════════════════════════════════╣
+║ GnuPG        ║ https://www.gnupg.org/documentation           ║
+╠══════════════╬═══════════════════════════════════════════════╣
+║              ║                                               ║
+╠══════════════╬═══════════════════════════════════════════════╣
+║              ║                                               ║
+╠══════════════╩═══════════════════════════════════════════════╣
+║ Type 'm' to go back to menu.                                 ║
+╚══════════════════════════════════════════════════════════════╝
+"""
+    while True:
+        print((Colorate.Vertical(Colors.rainbow, helpscreen, 1)))
+        option_2 = input(Colors.green + " └──> ").strip().lower()
+        if option_2 == 'm':
+            main() 
+        else:
+            print("Invalid option, please try again.")
+            
 def report_issue():
     pass
 
@@ -364,9 +397,10 @@ def main():
     }
 
     while True:
-        option = input(Colors.green + " └──> ")
+        option = input(Colors.green + " └──> ").strip().lower()
         if option in options:
             options[option]()
+            break
         else:
             print("Invalid option, please try again.")
 
