@@ -381,6 +381,7 @@ def sqlmap():
     if tool_installed("9"):
         try:
             print(Colors.yellow + "Starting shell in ./tools/sqlmap-dev \nType 'exit' to exit.")
+            print(Colors.cyan +"Example Usage: python3 sqlmap.py --wizard ")
             os.chdir('./tools/sqlmap-dev')
             subprocess.run(['python3','sqlmap.py','-h']) 
             subprocess.call(['bash']) 
