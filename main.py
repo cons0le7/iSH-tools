@@ -63,7 +63,7 @@ def recon_ng():
 def nikto():
     if tool_installed("2"):
         try:
-            print(Colors.yellow + "Starting shell in ./tools/nikto/program \nCtrl+C once to stop operations within shell and again to exit.")
+            print(Colors.yellow + "Starting shell in ./tools/nikto/program \nCtrl+C once to stop operations within shell and then 'exit' to exit.")
             print(Colors.cyan + "Example Usage: perl nikto.pl -h http://www.example.com")
             os.chdir('./tools/nikto/program')
             subprocess.call(['bash']) 
