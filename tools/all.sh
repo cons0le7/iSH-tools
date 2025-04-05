@@ -42,6 +42,10 @@ pip3 install fuzzywuzzy
 pip3 install requests
 echo "XSStrike Installed!" 
 
+echo "Installing sqlmap..."
+git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git sqlmap-dev
+echo "sqlmap Installed!"
+
 echo "Installing FileBruteForcers"
 git clone https://github.com/midwestcoder2020/FileBruteforcers
 echo "Installing dependencies" 
