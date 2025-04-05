@@ -435,13 +435,15 @@ def help_menu():
 ╠══════════════╬═══════════════════════════════════════════════╣
 ║ XSStrike     ║ https://github.com/s0md3v/XSStrike/wiki/Usage ║
 ╠══════════════╬═══════════════════════════════════════════════╣
+║ sqlmap       ║ https://github.com/sqlmapproject/sqlmap       ║
+╠══════════════╬═══════════════════════════════════════════════╣
 ║ OpenSSL      ║ https://docs.openssl.org/master               ║
 ╠══════════════╬═══════════════════════════════════════════════╣
 ║ GnuPG        ║ https://www.gnupg.org/documentation           ║
 ╠══════════════╬═══════════════════════════════════════════════╣
-║              ║                                               ║
+║ ZipBrute     ║ github.com/midwestcoder2020/FileBruteforcers  ║
 ╠══════════════╬═══════════════════════════════════════════════╣
-║              ║                                               ║
+║ PDFBrute     ║ github.com/midwestcoder2020/FileBruteforcers  ║
 ╠══════════════╩═══════════════════════════════════════════════╣
 ║ Type 'm' to go back to menu.                                 ║
 ╚══════════════════════════════════════════════════════════════╝
