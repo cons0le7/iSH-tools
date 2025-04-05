@@ -1,6 +1,6 @@
 cd tools
 git clone https://github.com/s0md3v/XSStrike
-echo "Installing Dependancies..."
+echo "Installing Dependencies..."
 pip3 install tld
 pip3 install fuzzywuzzy
 pip3 install requests
