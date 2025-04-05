@@ -378,7 +378,29 @@ def pdfbrute():
             pdfbrute()  
 
 def sqlmap(): 
-    pass
+    if tool_installed("9"):
+        try:
+            print(Colors.yellow + "Starting shell in ./tools/sqlmap-dev \nType 'exit' to exit.")
+            os.chdir('./tools/sqlmap-dev')
+            subprocess.run(['python3','sqlmap.py','-h']) 
+            subprocess.call(['bash']) 
+            sys.exit() 
+        except Exception as e:
+            print(f"An error occurred while running the script: {e}")
+    else:
+        install_option = input(Colors.green + " sqlmap is not installed. Install now? (y/n):\n >>> ")
+        install_option = install_option.strip().lower()
+        if install_option == 'y':
+            tool_sh = 'sqlmap.sh'
+            install_tool(tool_sh)
+            install_true("9")
+            input(Colors.green + " Press Enter to run script.\n >>> ")
+            sqlmap()
+        elif install_option == 'n':
+            main()
+        else:
+            print(Colors.green + " Invalid choice. Enter 'y' or 'n'.\n >>> ")
+            sqlmal()
     
 def help_menu():
     subprocess.call(['clear'])
