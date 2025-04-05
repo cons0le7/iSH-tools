@@ -303,6 +303,23 @@ def gnupg():
             print(Colors.green + " Invalid choice. Enter 'y' or 'n'.\n >>> ")
             gnupg()
             
+def install_all():
+    os.chdir('./tools')
+    subprocess.run(['bash','all.sh'])
+    os.chdir('./..')
+    install_true("1") 
+    install_true("2")   
+    install_true("3")
+    install_true("4")
+    install_true("5")
+    install_true("6")
+    install_true("7")
+    install_true("8")
+    install_true("12")
+    install_true("13")
+    input(Colors.green +" >>> ")
+    main()
+    
 def help_menu():
     helpscreen = r"""
 ╔══════════════════════════════════════════════════════════════╗                                                                                                                                 
@@ -378,8 +395,8 @@ def main():
 ║  OSINT                      ║      ├── [12] OpenSSL          ║
 ║      ├── [5] Infoga         ║      └── [13] GnuPG            ║
 ║      ├── [6] Peepler        ║                                ║
-║      └── [7] IntelBase *    ║                                ║
-║                             ║  Options                       ║
+║      └── [7] IntelBase *    ║  Options                       ║
+║                             ║      ├── [i] Install All       ║
 ║  Web-App Testing            ║      ├── [?] Help              ║
 ║      └── [8] XSStrike       ║      └── [!] Report an Issue   ║
 ╠═════════════════════════════╩════════════════════════════════╣
@@ -399,6 +416,7 @@ def main():
         "8": xsstrike,
         "12": openssl,
         "13": gnupg,
+        "i": install_all,
         "?": help_menu,
         "!": report_issue
     }
