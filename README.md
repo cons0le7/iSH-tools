@@ -19,7 +19,7 @@ cd ./..
 python3 main.py
 ```
 ## Credits: 
-- Links to all of the original tools used in this toolkit.
+**Links to all of the original tools used in this toolkit.**
 
 [Recon-ng](https://github.com/lanmaster53/recon-ng)
 [Nikto](https://github.com/sullo/nikto)
