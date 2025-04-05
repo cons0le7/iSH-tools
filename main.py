@@ -348,8 +348,15 @@ def help_menu():
             print("Invalid option, please try again.")
             
 def report_issue():
-    pass
+    print(Colors.yellow + "\nOpen an issue at: \nhttps://github.com/cons0le7/iSH-tools/issues")
+    input(Colors.green + """
+    
 
+    
+            
+ >>> """)
+    main() 
+    
 def main():
     banner = r"""
 ██╗███████╗██╗  ██╗   ████████╗ ██████╗  ██████╗ ██╗     ███████╗
