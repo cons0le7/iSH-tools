@@ -42,6 +42,13 @@ pip3 install fuzzywuzzy
 pip3 install requests
 echo "XSStrike Installed!" 
 
+echo "Installing FileBruteForcers"
+git clone https://github.com/midwestcoder2020/FileBruteforcers
+echo "Installing dependencies" 
+pip3 install PyPDF2
+pip3 install zipfile36
+echo "FileBruteForcers Installed!"
+
 echo "Installing OpenSSL..."
 apk add openssl
 echo "OpenSSL Installed!"
