@@ -38,6 +38,7 @@ python3 main.py
 - Works best with font size set to 10 or lower.
 - Tools can take some time to load in the shell environment, wait for them to appear before using. Nikto can be used right away.
 - There is currently 1 known issue with the install all option, I will be fixing this ASAP! For now, installing the tools from their options in menu still works!
+- If you have already ran install all and get errors, you can reset the install by editing `check.json` and setting the values to the corresponding tools number to `false`.
 
 ## Disclaimer: 
 These tools are intended to be used legally and ethically. Do not use them against anything that you do not own or do not have permission to use them against. I am not responsible for any use or misuse of these tools. 
