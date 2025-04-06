@@ -35,6 +35,7 @@ python3 main.py
 [GnuPG](https://gnupg.org)
 
 ## Additional Notes:
+- Works best with font size set to 10 or lower.
 - Tools can take some time to load in the shell environment, wait for them to appear before using. Nikto can be used right away.
 - There is currently 1 known issue with the install all option, I will be fixing this ASAP! For now, installing the tools from their options in menu still works!
 
