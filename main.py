@@ -4,6 +4,14 @@ import json
 import sys 
 import os
 
+def load_theme():
+    try:
+        with open('theme.json', 'r') as file:
+            data = json.load(file)
+            return data.get("theme", "rainbow") 
+    except FileNotFoundError:
+        return "rainbow" 
+
 def install_true(key_to_update):
     with open('check.json', 'r') as file:
         data = json.load(file)
@@ -402,9 +410,91 @@ def sqlmap():
         else:
             print(Colors.green + " Invalid choice. Enter 'y' or 'n'.\n >>> ")
             sqlmal()
-    
+
+def choose_theme():
+    theme = load_theme()
+    subprocess.run(['clear'])
+    theme_menu = """ 
+██╗███████╗██╗  ██╗   ████████╗ ██████╗  ██████╗ ██╗     ███████╗
+╚═╝██╔════╝██║  ██║   ╚══██╔══╝██╔═══██╗██╔═══██╗██║     ██╔════╝
+██║███████╗███████║█████╗██║   ██║   ██║██║   ██║██║     ███████╗
+██║╚════██║██╔══██║╚════╝██║   ██║   ██║██║   ██║██║     ╚════██║
+██║███████║██║  ██║      ██║   ╚██████╔╝╚██████╔╝███████╗███████║
+╚═╝╚══════╝╚═╝  ╚═╝      ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝╚══════╝
+                                                  v1.0.1
+                                                
+╔══════════════════════════════════════════════════════════════╗                                                                                                                                 
+║                          <Themes>                            ║   
+╠═════════════════════════════╦════════════════════════════════╣
+║     [1] black to white      ║     [15] green to yellow       ║
+║     [2] black to red        ║     [16] green to cyan         ║
+║     [3] black to green      ║     [17] blue to black         ║
+║     [4] black to blue       ║     [18] blue to white         ║
+║     [5] white to black      ║     [19] blue to cyan          ║
+║     [6] white to red        ║     [20] blue to purple        ║
+║     [7] white to green      ║     [21] yellow to red         ║
+║     [8] white to blue       ║     [22] yellow to green       ║
+║     [9] red to black        ║     [23] purple to red         ║
+║     [10] red to white       ║     [24] purple to blue        ║
+║     [11] red to yellow      ║     [25] cyan to green         ║
+║     [12] red to purple      ║     [26] cyan to blue          ║
+║     [13] green to black     ║     [27] rainbow               ║
+║     [14] green to white     ║                                ║
+╠═════════════════════════════╩════════════════════════════════╣
+║ Type 'm' to go back to menu.                                 ║
+╚══════════════════════════════════════════════════════════════╝
+"""
+    themes = {
+        '1': 'black_to_white',
+        '2': 'black_to_red',
+        '3': 'black_to_green',
+        '4': 'black_to_blue',
+        '5': 'white_to_black',
+        '6': 'white_to_red',
+        '7': 'white_to_green',
+        '8': 'white_to_blue',
+        '9': 'red_to_black',
+        '10': 'red_to_white',
+        '11': 'red_to_yellow',
+        '12': 'red_to_purple',
+        '13': 'green_to_black',
+        '14': 'green_to_white',
+        '15': 'green_to_yellow',
+        '16': 'green_to_cyan',
+        '17': 'blue_to_black',
+        '18': 'blue_to_white',
+        '19': 'blue_to_cyan',
+        '20': 'blue_to_purple',
+        '21': 'yellow_to_red',
+        '22': 'yellow_to_green',
+        '23': 'purple_to_red',
+        '24': 'purple_to_blue',
+        '25': 'cyan_to_green',
+        '26': 'cyan_to_blue',
+        '27': 'rainbow'
+    }
+    while True:
+        print(Colorate.Vertical(getattr(Colors, theme), theme_menu, 1))
+        theme = input(Colors.green + " └──> ").strip().lower()
+        if theme in themes:
+            selected_theme = themes[theme]
+            try:
+                with open('theme.json', 'w') as file:
+                    json.dump({"theme": selected_theme}, file)
+                print(Colors.yellow + f"\nTheme '{selected_theme}' set successfully. Script must be reloaded.")
+                print(Colors.green + "")
+            except IOError as e:
+                print(Colors.red + f"An error occurred while saving the theme: {e}")
+            break
+        elif theme == "m": 
+            main()
+        else:
+            print(Colors.red + "Invalid option, please try again.")
+
+  
 def help_menu():
-    subprocess.call(['clear'])
+    theme = load_theme()
+    subprocess.run(['clear'])
     helpscreen = r"""
 ██╗███████╗██╗  ██╗   ████████╗ ██████╗  ██████╗ ██╗     ███████╗
 ╚═╝██╔════╝██║  ██║   ╚══██╔══╝██╔═══██╗██╔═══██╗██║     ██╔════╝
@@ -450,7 +540,7 @@ def help_menu():
 ╚══════════════════════════════════════════════════════════════╝
 """
     while True:
-        print((Colorate.Vertical(Colors.rainbow, helpscreen, 1)))
+        print(Colorate.Vertical(getattr(Colors, theme), helpscreen, 1))
         option_2 = input(Colors.green + " └──> ").strip().lower()
         if option_2 == 'm':
             main() 
@@ -468,7 +558,8 @@ def report_issue():
     main() 
     
 def main():
-    subprocess.call(['clear'])
+    theme = load_theme()
+    subprocess.run(['clear'])
     banner = r"""
 ██╗███████╗██╗  ██╗   ████████╗ ██████╗  ██████╗ ██╗     ███████╗
 ╚═╝██╔════╝██║  ██║   ╚══██╔══╝██╔═══██╗██╔═══██╗██║     ██╔════╝
@@ -489,16 +580,16 @@ def main():
 ║  OSINT                      ║      ├── [12] OpenSSL          ║
 ║      ├── [5] Infoga         ║      └── [13] GnuPG            ║
 ║      ├── [6] Peepler        ║                                ║
-║      └── [7] IntelBase *    ║                                ║
-║                             ║  Options                       ║
-║  Web-App Testing            ║      ├── [i] Install All       ║
+║      └── [7] IntelBase *    ║  Options                       ║
+║                             ║      ├── [i] Install All       ║
+║  Web-App Testing            ║      ├── [t] Themes            ║
 ║      ├── [8] XSStrike       ║      ├── [?] Help              ║
 ║      └── [9] sqlmap         ║      └── [!] Report an Issue   ║
 ╠═════════════════════════════╩════════════════════════════════╣
 ║ * = API token required [$]                                   ║
 ╚══════════════════════════════════════════════════════════════╝
 """
-    print((Colorate.Vertical(Colors.rainbow, banner,1)))
+    print(Colorate.Vertical(getattr(Colors, theme), banner, 1))
 
     options = {
         "1": recon_ng,
@@ -514,6 +605,7 @@ def main():
         "11": pdfbrute, 
         "12": openssl,
         "13": gnupg,
+        "t": choose_theme,
         "i": install_all,
         "?": help_menu,
         "!": report_issue
