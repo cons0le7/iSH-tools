@@ -488,6 +488,7 @@ def choose_theme():
             break
         elif theme == "m": 
             main()
+            break
         else:
             print(Colors.red + "Invalid option, please try again.")
 
@@ -544,6 +545,7 @@ def help_menu():
         option_2 = input(Colors.green + " └──> ").strip().lower()
         if option_2 == 'm':
             main() 
+            break
         else:
             print("Invalid option, please try again.")
             
