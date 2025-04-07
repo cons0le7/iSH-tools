@@ -1,6 +1,4 @@
 echo "Installing Nikto..."
-echo ""
-echo "Installing Perl..." 
 apk add perl 
 git clone https://github.com/sullo/nikto
 echo "Nikto Installed!"
@@ -25,7 +23,6 @@ echo "Infoga Installed!"
 
 echo "Installing Peepler"
 git clone https://github.com/cons0le7/peepler-iSH.git
-cd peepler-iSH
 echo "Installing Dependencies... "
 pip3 install bs4 requests 
 echo "Peepler Installed!"
@@ -48,7 +45,7 @@ echo "sqlmap Installed!"
 
 echo "Installing FileBruteForcers"
 git clone https://github.com/midwestcoder2020/FileBruteforcers
-echo "Installing dependencies" 
+echo "Installing dependencies..." 
 pip3 install PyPDF2
 pip3 install zipfile36
 echo "FileBruteForcers Installed!"
@@ -63,3 +60,4 @@ echo "GnuPG Installed!"
 
 echo ""
 echo "-ALL TOOLS INSTALLED-"
+echo ""
