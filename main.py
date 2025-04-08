@@ -673,8 +673,9 @@ def main():
 ║      └── [7] IntelBase *    ║  Options                       ║
 ║                             ║      ├── [i] Install All       ║
 ║  Web-App Testing            ║      ├── [t] Themes            ║
-║      ├── [8] XSStrike       ║      ├── [?] Help              ║
-║      └── [9] sqlmap         ║      └── [!] Report an Issue   ║
+║      ├── [8] XSStrike       ║      ├── [x] Exit              ║
+║      └── [9] sqlmap         ║      ├── [?] Help              ║
+║                             ║      └── [!] Report an Issue   ║
 ╠═════════════════════════════╩════════════════════════════════╣
 ║ * = API token required [$]                                   ║
 ╚══════════════════════════════════════════════════════════════╝"""
@@ -715,6 +716,8 @@ def main():
         if option in options:
             options[option]()
             break
+        elif option == "x": 
+            sys.exit()
         else:
             input(Colors.red + "Invalid option, press Enter to try again. \n   >>>   ")
             main()
