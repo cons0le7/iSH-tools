@@ -553,7 +553,7 @@ def help_menu():
             main() 
             break
         else:
-            print("Invalid option, please try again.")
+            input(Colors.red + "\n\n\nInvalid option, press Enter to try again. \n\n   >>>   ")
             
 def report_issue():
     print(Colors.yellow + "\nOpen an issue at: \nhttps://github.com/cons0le7/iSH-tools/issues")
