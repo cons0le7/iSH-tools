@@ -409,7 +409,7 @@ def sqlmap():
             main()
         else:
             print(Colors.green + " Invalid choice. Enter 'y' or 'n'.\n >>> ")
-            sqlmap()
+            sqlmal()
 
 def choose_theme():
     theme = load_theme()
@@ -427,98 +427,95 @@ def choose_theme():
 ║                          <Themes>                            ║
 ╠═════════════════════════════╦════════════════════════════════╣
 ║      <Dark Mode Only>       ║        <Light Mode Only>       ║
-╠═════════════════════════════╩════════════════════════════════╣
-║     [1] white               ║     [6] black                  ║
-║     [2] white_to_black      ║     [7] black_to_white         ║
-║     [3] white_to_red        ║     [8] black_to_red           ║
-║     [4] white_to_green      ║     [9] black_to_green         ║
-║     [5] white_to_blue       ║     [10] black_to_blue         ║
+╠═════════════════════════════╬════════════════════════════════╣
+║     [1] white               ║     [8] black                  ║
+║     [2] white_to_red        ║     [9] black_to_red           ║
+║     [3] red_to_white        ║     [10] red_to_black          ║
+║     [4] white_to_green      ║     [11] black_to_green        ║
+║     [5] green_to_white      ║     [12] green_to_black        ║
+║     [6] white_to_blue       ║     [13] black_to_blue         ║
+║     [7] blue_to_white       ║     [14] blue_to_black         ║
 ╠═════════════════════════════╩════════════════════════════════╣
 ║                          <Colors>                            ║
 ╠═════════════════════════════╦════════════════════════════════╣
-║     [11] red                ║     [20] turquoise             ║
-║     [12] green              ║     [21] light_gray            ║
-║     [13] blue               ║     [22] dark_gray             ║
-║     [14] gray               ║     [23] light_red             ║
-║     [15] yellow             ║     [24] light_green           ║
-║     [16] purple             ║     [25] light_blue            ║
-║     [17] cyan               ║     [26] dark_red              ║
-║     [18] orange             ║     [27] dark_green            ║
-║     [19] pink               ║     [28] dark_blue             ║
+║     [15] red                ║     [24] turquoise             ║
+║     [16] green              ║     [25] light_gray            ║
+║     [17] blue               ║     [26] dark_gray             ║
+║     [18] gray               ║     [27] light_red             ║
+║     [19] yellow             ║     [28] light_green           ║
+║     [20] purple             ║     [29] light_blue            ║
+║     [21] cyan               ║     [30] dark_red              ║
+║     [22] orange             ║     [31] dark_green            ║
+║     [23] pink               ║     [32] dark_blue             ║
 ╠═════════════════════════════╩════════════════════════════════╣
 ║                         <Gradients>                          ║
 ╠═════════════════════════════╦════════════════════════════════╣
-║     [29] red_to_black       ║     [42] yellow_to_green       ║
-║     [30] red_to_white       ║     [43] purple_to_red         ║
-║     [31] red_to_yellow      ║     [44] purple_to_blue        ║
-║     [32] red_to_purple      ║     [45] cyan_to_green         ║
-║     [33] green_to_black     ║     [46] cyan_to_blue          ║
-║     [34] green_to_white     ║     [47] red_to_blue           ║
-║     [35] green_to_yellow    ║     [48] red_to_green          ║
-║     [36] green_to_cyan      ║     [49] green_to_blue         ║
-║     [37] blue_to_black      ║     [50] green_to_red          ║
-║     [38] blue_to_white      ║     [51] blue_to_red           ║
-║     [39] blue_to_cyan       ║     [52] blue_to_green         ║
-║     [40] blue_to_purple     ║     [53] rainbow               ║
-║     [41] yellow_to_red      ║                                ║
+║     [33] red_to_yellow      ║     [42] cyan_to_blue          ║
+║     [34] yellow_to_red      ║     [43] blue_to_purple        ║
+║     [35] red_to_purple      ║     [44] purple_to_blue        ║
+║     [36] purple_to_red      ║     [45] red_to_blue           ║
+║     [37] green_to_yellow    ║     [46] blue_to_red           ║
+║     [38] yellow_to_green    ║     [47] red_to_green          ║
+║     [39] green_to_cyan      ║     [48] green_to_red          ║
+║     [40] cyan_to_green      ║     [49] green_to_blue         ║
+║     [41] blue_to_cyan       ║     [50] blue_to_green         ║
+║                             ║     [51] rainbow               ║
 ╠═════════════════════════════╩════════════════════════════════╣
 ║ Type 'm' to go back to menu.                                 ║
 ╚══════════════════════════════════════════════════════════════╝
 """
     themes = {
-    '1': 'white', 
-    '2': 'white_to_black',
-    '3': 'white_to_red',
+    '1': 'white',     
+    '2': 'white_to_red',
+    '3': 'red_to_white',
     '4': 'white_to_green',
-    '5': 'white_to_blue',
-    '6': 'black', 
-    '7': 'black_to_white',
-    '8': 'black_to_red',
-    '9': 'black_to_green',
-    '10': 'black_to_blue',
-    '11': 'red', 
-    '12': 'green', 
-    '13': 'blue',
-    '14': 'gray',
-    '15': 'yellow', 
-    '16': 'purple', 
-    '17': 'cyan',
-    '18': 'orange', 
-    '19': 'pink', 
-    '20': 'turquoise',
-    '21': 'light_gray', 
-    '22': 'dark_gray',
-    '23': 'light_red', 
-    '24': 'light_green', 
-    '25': 'light_blue',
-    '26': 'dark_red', 
-    '27': 'dark_green', 
-    '28': 'dark_blue',
-    '29': 'red_to_black',
-    '30': 'red_to_white',
-    '31': 'red_to_yellow',
-    '32': 'red_to_purple',
-    '33': 'green_to_black',
-    '34': 'green_to_white',
-    '35': 'green_to_yellow',
-    '36': 'green_to_cyan',
-    '37': 'blue_to_black',
-    '38': 'blue_to_white',
-    '39': 'blue_to_cyan',
-    '40': 'blue_to_purple',
-    '41': 'yellow_to_red',
-    '42': 'yellow_to_green',
-    '43': 'purple_to_red',
+    '5': 'green_to_white',
+    '6': 'white_to_blue',
+    '7': 'blue_to_white',
+    '8': 'black',     
+    '9': 'black_to_red',
+    '10': 'red_to_black',
+    '11': 'black_to_green',
+    '12': 'green_to_black',
+    '13': 'black_to_blue',
+    '14': 'blue_to_black',
+    '15': 'red', 
+    '16': 'green', 
+    '17': 'blue',
+    '18': 'gray',
+    '19': 'yellow', 
+    '20': 'purple', 
+    '21': 'cyan',
+    '22': 'orange', 
+    '23': 'pink', 
+    '24': 'turquoise',
+    '25': 'light_gray', 
+    '26': 'dark_gray',
+    '27': 'light_red', 
+    '28': 'light_green', 
+    '29': 'light_blue',
+    '30': 'dark_red', 
+    '31': 'dark_green', 
+    '32': 'dark_blue',   
+    '33': 'red_to_yellow',
+    '34': 'yellow_to_red',
+    '35': 'red_to_purple',
+    '36': 'purple_to_red',
+    '37': 'green_to_yellow',
+    '38': 'yellow_to_green',
+    '39': 'green_to_cyan',
+    '40': 'cyan_to_green',
+    '41': 'blue_to_cyan',
+    '42': 'cyan_to_blue',
+    '43': 'blue_to_purple',
     '44': 'purple_to_blue',
-    '45': 'cyan_to_green',
-    '46': 'cyan_to_blue',
-    '47': 'red_to_blue',
-    '48': 'red_to_green',
+    '45': 'red_to_blue',
+    '46': 'blue_to_red',
+    '47': 'red_to_green',
+    '48': 'green_to_red',
     '49': 'green_to_blue',
-    '50': 'green_to_red',
-    '51': 'blue_to_red', 
-    '52': 'blue_to_green',
-    '53': 'rainbow'
+    '50': 'blue_to_green',
+    '51': 'rainbow'
 }
     single_colors = [
         'white', 'black', 'red', 'green', 'blue', 'yellow', 
