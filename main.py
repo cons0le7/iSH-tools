@@ -409,7 +409,7 @@ def sqlmap():
             main()
         else:
             print(Colors.green + " Invalid choice. Enter 'y' or 'n'.\n >>> ")
-            sqlmal()
+            sqlmap()
 
 def choose_theme():
     theme = load_theme()
