@@ -665,17 +665,16 @@ def main():
 ║      ├── [1] Recon-ng       ║      ├── [10] ZipBrute (FBF)   ║
 ║      ├── [2] Nikto          ║      └── [11] PDFBrute (FBF)   ║
 ║      ├── [3] DNSrecon       ║                                ║
-║      └── [4] UDPSCAN        ║                                ║
-║                             ║  Cryptography                  ║
-║  OSINT                      ║      ├── [12] OpenSSL          ║
-║      ├── [5] Infoga         ║      └── [13] GnuPG            ║
-║      ├── [6] Peepler        ║                                ║
-║      └── [7] IntelBase *    ║  Options                       ║
-║                             ║      ├── [i] Install All       ║
-║  Web-App Testing            ║      ├── [t] Themes            ║
-║      ├── [8] XSStrike       ║      ├── [x] Exit              ║
-║      └── [9] sqlmap         ║      ├── [?] Help              ║
-║                             ║      └── [!] Report an Issue   ║
+║      └── [4] UDPSCAN        ║  Cryptography                  ║
+║                             ║      ├── [12] OpenSSL          ║
+║  OSINT                      ║      └── [13] GnuPG            ║
+║      ├── [5] Infoga         ║                                ║
+║      ├── [6] Peepler        ║  Options                       ║
+║      └── [7] IntelBase *    ║      ├── [i] Install All       ║
+║                             ║      ├── [t] Themes            ║
+║  Web-App Testing            ║      ├── [x] Exit              ║
+║      ├── [8] XSStrike       ║      ├── [?] Help              ║
+║      └── [9] sqlmap         ║      └── [!] Report an Issue   ║
 ╠═════════════════════════════╩════════════════════════════════╣
 ║ * = API token required [$]                                   ║
 ╚══════════════════════════════════════════════════════════════╝"""
