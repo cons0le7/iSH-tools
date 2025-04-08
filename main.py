@@ -625,6 +625,7 @@ def main():
             options[option]()
             break
         else:
-            print("Invalid option, please try again.")
+            input(Colors.red + "Invalid option, press Enter to try again. \n   >>>   ")
+            main()
 
 main()
