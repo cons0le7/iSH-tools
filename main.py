@@ -548,7 +548,22 @@ def choose_theme():
                 break
             except IOError as e:
                 print(Colors.red + f"An error occurred while saving the theme: {e}")
-                break                
+                break 
+        elif theme_choice == '52':
+            warning = input(Colors.red+ "You found glitched theme easter egg! \nGlitching will persist after exiting /breaking script. \nType 'exit' in terminal to stop. Continue? (y/n) \n   >>>   ").strip().lower()
+            if warning == 'y':
+                selected_theme = "reset"
+                try:
+                    with open('theme.json', 'w') as file:
+                        json.dump({"theme": selected_theme}, file)
+                    choose_theme()  
+                    break
+                except IOError as e:
+                    print(Colors.red + f"An error occurred while saving the theme: {e}")
+                    break
+            else: 
+                choose_theme() 
+                            
         elif theme_choice == "m":
             main() 
             break        
