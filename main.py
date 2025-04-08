@@ -423,81 +423,141 @@ def choose_theme():
 ╚═╝╚══════╝╚═╝  ╚═╝      ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝╚══════╝
                                                   v1.0.1
                                                 
-╔══════════════════════════════════════════════════════════════╗                                                                                                                                 
-║                          <Themes>                            ║   
+╔══════════════════════════════════════════════════════════════╗
+║                          <Themes>                            ║
 ╠═════════════════════════════╦════════════════════════════════╣
-║     [1] black to white      ║     [15] green to yellow       ║
-║     [2] black to red        ║     [16] green to cyan         ║
-║     [3] black to green      ║     [17] blue to black         ║
-║     [4] black to blue       ║     [18] blue to white         ║
-║     [5] white to black      ║     [19] blue to cyan          ║
-║     [6] white to red        ║     [20] blue to purple        ║
-║     [7] white to green      ║     [21] yellow to red         ║
-║     [8] white to blue       ║     [22] yellow to green       ║
-║     [9] red to black        ║     [23] purple to red         ║
-║     [10] red to white       ║     [24] purple to blue        ║
-║     [11] red to yellow      ║     [25] cyan to green         ║
-║     [12] red to purple      ║     [26] cyan to blue          ║
-║     [13] green to black     ║     [27] rainbow               ║
-║     [14] green to white     ║                                ║
+║        Dark Mode Only       ║        Light Mode Only         ║
+╠═════════════════════════════╩════════════════════════════════╣
+║     [1] white               ║     [6] black                  ║
+║     [2] white_to_black      ║     [7] black_to_white         ║
+║     [3] white_to_red        ║     [8] black_to_red           ║
+║     [4] white_to_green      ║     [9] black_to_green         ║
+║     [5] white_to_blue       ║     [10] black_to_blue         ║
+╠═════════════════════════════╩════════════════════════════════╣
+║                         Colors                               ║
+╠═════════════════════════════╦════════════════════════════════╣
+║     [11] red                ║     [20] turquoise             ║
+║     [12] green              ║     [21] light_gray            ║
+║     [13] blue               ║     [22] dark_gray             ║
+║     [14] gray               ║     [23] light_red             ║
+║     [15] yellow             ║     [24] light_green           ║
+║     [16] purple             ║     [25] light_blue            ║
+║     [17] cyan               ║     [26] dark_red              ║
+║     [18] orange             ║     [27] dark_green            ║
+║     [19] pink               ║     [28] dark_blue             ║
+╠═════════════════════════════╩════════════════════════════════╣
+║                          Gradients                           ║
+╠═════════════════════════════╦════════════════════════════════╣
+║     [29] red_to_black       ║     [42] yellow_to_green       ║
+║     [30] red_to_white       ║     [43] purple_to_red         ║
+║     [31] red_to_yellow      ║     [44] purple_to_blue        ║
+║     [32] red_to_purple      ║     [45] cyan_to_green         ║
+║     [33] green_to_black     ║     [46] cyan_to_blue          ║
+║     [34] green_to_white     ║     [47] red_to_blue           ║
+║     [35] green_to_yellow    ║     [48] red_to_green          ║
+║     [36] green_to_cyan      ║     [49] green_to_blue         ║
+║     [37] blue_to_black      ║     [50] green_to_red          ║
+║     [38] blue_to_white      ║     [51] blue_to_red           ║
+║     [39] blue_to_cyan       ║     [52] blue_to_green         ║
+║     [40] blue_to_purple     ║     [53] rainbow               ║
+║     [41] yellow_to_red      ║                                ║
 ╠═════════════════════════════╩════════════════════════════════╣
 ║ Type 'm' to go back to menu.                                 ║
 ╚══════════════════════════════════════════════════════════════╝
 """
     themes = {
-        '1': 'black_to_white',
-        '2': 'black_to_red',
-        '3': 'black_to_green',
-        '4': 'black_to_blue',
-        '5': 'white_to_black',
-        '6': 'white_to_red',
-        '7': 'white_to_green',
-        '8': 'white_to_blue',
-        '9': 'red_to_black',
-        '10': 'red_to_white',
-        '11': 'red_to_yellow',
-        '12': 'red_to_purple',
-        '13': 'green_to_black',
-        '14': 'green_to_white',
-        '15': 'green_to_yellow',
-        '16': 'green_to_cyan',
-        '17': 'blue_to_black',
-        '18': 'blue_to_white',
-        '19': 'blue_to_cyan',
-        '20': 'blue_to_purple',
-        '21': 'yellow_to_red',
-        '22': 'yellow_to_green',
-        '23': 'purple_to_red',
-        '24': 'purple_to_blue',
-        '25': 'cyan_to_green',
-        '26': 'cyan_to_blue',
-        '27': 'rainbow'
-    }
-    current_theme = load_theme()
+    '1': 'white', 
+    '2': 'white_to_black',
+    '3': 'white_to_red',
+    '4': 'white_to_green',
+    '5': 'white_to_blue',
+    '6': 'black', 
+    '7': 'black_to_white',
+    '8': 'black_to_red',
+    '9': 'black_to_green',
+    '10': 'black_to_blue',
+    '11': 'red', 
+    '12': 'green', 
+    '13': 'blue',
+    '14': 'gray',
+    '15': 'yellow', 
+    '16': 'purple', 
+    '17': 'cyan',
+    '18': 'orange', 
+    '19': 'pink', 
+    '20': 'turquoise',
+    '21': 'light_gray', 
+    '22': 'dark_gray',
+    '23': 'light_red', 
+    '24': 'light_green', 
+    '25': 'light_blue',
+    '26': 'dark_red', 
+    '27': 'dark_green', 
+    '28': 'dark_blue',
+    '29': 'red_to_black',
+    '30': 'red_to_white',
+    '31': 'red_to_yellow',
+    '32': 'red_to_purple',
+    '33': 'green_to_black',
+    '34': 'green_to_white',
+    '35': 'green_to_yellow',
+    '36': 'green_to_cyan',
+    '37': 'blue_to_black',
+    '38': 'blue_to_white',
+    '39': 'blue_to_cyan',
+    '40': 'blue_to_purple',
+    '41': 'yellow_to_red',
+    '42': 'yellow_to_green',
+    '43': 'purple_to_red',
+    '44': 'purple_to_blue',
+    '45': 'cyan_to_green',
+    '46': 'cyan_to_blue',
+    '47': 'red_to_blue',
+    '48': 'red_to_green',
+    '49': 'green_to_blue',
+    '50': 'green_to_red',
+    '51': 'blue_to_red', 
+    '52': 'blue_to_green',
+    '53': 'rainbow'
+}
+    single_colors = [
+        'white', 'black', 'red', 'green', 'blue', 'yellow', 
+        'purple', 'cyan', 'orange', 'pink', 'turquoise', 
+        'light_gray', 'dark_gray', 'gray', 'light_red', 
+        'light_green', 'light_blue', 'dark_red', 'dark_green', 
+        'dark_blue'
+    ]
+    
     while True:
         try:
-            print(Colorate.Vertical(getattr(Colors, current_theme), theme_menu, 1))
-        except AttributeError:
-            input(Colors.red + "Error: Invalid color attribute for the current theme. Press Enter to reload. \n   >>>   ")                      
-            choose_theme()
-            break        
+            color = getattr(Colors, theme, None)
+            if color is None:
+                raise ValueError(f"Color '{theme}' not found.")
+            is_single_color = theme in single_colors
+            if is_single_color:
+                print(color + theme_menu) 
+            else:
+                print(Colorate.Vertical(color, theme_menu, 1))  
+        except Exception:
+            input(Colors.red + "Error: Invalid color attribute for the current theme. Press Enter to reload.\n   >>>   ")
+            choose_theme()  
+            break
         theme_choice = input(Colors.green + " └──> ").strip().lower()        
         if theme_choice in themes:
             selected_theme = themes[theme_choice]
             try:
                 with open('theme.json', 'w') as file:
                     json.dump({"theme": selected_theme}, file)
-                choose_theme()
+                choose_theme()  
                 break
             except IOError as e:
                 print(Colors.red + f"An error occurred while saving the theme: {e}")
-            break
-        elif theme_choice == "m": 
-            main()
-            break
+                break                
+        elif theme_choice == "m":
+            main() 
+            break        
         else:
-            input(Colors.red + "Invalid option, press Enter to try again. \n   >>>   ")
-            choose_theme()
+            input(Colors.red + "Invalid option, press Enter to try again.\n   >>>   ")
                                     
 def help_menu():
     theme = load_theme()
@@ -510,8 +570,8 @@ def help_menu():
 ██║███████║██║  ██║      ██║   ╚██████╔╝╚██████╔╝███████╗███████║
 ╚═╝╚══════╝╚═╝  ╚═╝      ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝╚══════╝
                                                   v1.0.1
-╔══════════════════════════════════════════════════════════════╗                                                                                                                                 
-║                           <Help>                             ║   
+╔══════════════════════════════════════════════════════════════╗
+║                           <Help>                             ║
 ╠══════════════╦═══════════════════════════════════════════════╣
 ║     Tool     ║                 Documentation                 ║
 ╠══════════════╬═══════════════════════════════════════════════╣
@@ -547,7 +607,19 @@ def help_menu():
 ╚══════════════════════════════════════════════════════════════╝
 """
     while True:
-        print(Colorate.Vertical(getattr(Colors, theme), helpscreen, 1))
+        color = getattr(Colors, theme, None)
+        is_single_color = theme in [
+        'white', 'black', 'red', 'green', 'blue', 'yellow', 
+        'purple', 'cyan', 'orange', 'pink', 'turquoise', 
+        'light_gray', 'dark_gray', 'gray', 'light_red', 
+        'light_green', 'light_blue', 'dark_red', 'dark_green', 
+        'dark_blue'
+        ]
+
+        if is_single_color:
+            print(color + helpscreen) 
+        else:
+            print(Colorate.Vertical(color, helpscreen, 1))  
         option_2 = input(Colors.green + " └──> ").strip().lower()
         if option_2 == 'm':
             main() 
@@ -568,7 +640,7 @@ def report_issue():
 def main():
     theme = load_theme()
     subprocess.run(['clear'])
-    banner = r"""
+    banner = """
 ██╗███████╗██╗  ██╗   ████████╗ ██████╗  ██████╗ ██╗     ███████╗
 ╚═╝██╔════╝██║  ██║   ╚══██╔══╝██╔═══██╗██╔═══██╗██║     ██╔════╝
 ██║███████╗███████║█████╗██║   ██║   ██║██║   ██║██║     ███████╗
@@ -576,8 +648,8 @@ def main():
 ██║███████║██║  ██║      ██║   ╚██████╔╝╚██████╔╝███████╗███████║
 ╚═╝╚══════╝╚═╝  ╚═╝      ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝╚══════╝
                                                   v1.0.1
-╔══════════════════════════════════════════════════════════════╗                                                                                                                                 
-║                https://github.com/cons0le7                   ║   
+╔══════════════════════════════════════════════════════════════╗
+║                https://github.com/cons0le7                   ║
 ╠═════════════════════════════╦════════════════════════════════╣
 ║  Reconnaissance             ║  Password Cracking             ║
 ║      ├── [1] Recon-ng       ║      ├── [10] ZipBrute (FBF)   ║
@@ -597,8 +669,18 @@ def main():
 ║ * = API token required [$]                                   ║
 ╚══════════════════════════════════════════════════════════════╝
 """
-    print(Colorate.Vertical(getattr(Colors, theme), banner, 1))
-
+    color = getattr(Colors, theme, None)
+    is_single_color = theme in [
+        'white', 'black', 'red', 'green', 'blue', 'yellow', 
+        'purple', 'cyan', 'orange', 'pink', 'turquoise', 
+        'light_gray', 'dark_gray', 'gray', 'light_red', 
+        'light_green', 'light_blue', 'dark_red', 'dark_green', 
+        'dark_blue'
+    ]
+    if is_single_color:
+        print(color + banner) 
+    else:
+        print(Colorate.Vertical(color, banner, 1))
     options = {
         "1": recon_ng,
         "2": nikto,
@@ -616,9 +698,9 @@ def main():
         "t": choose_theme,
         "i": install_all,
         "?": help_menu,
+        "h": help_menu,
         "!": report_issue
-    }
-    
+    }    
     while True:
         option = input(Colors.green + " └──> ").strip().lower()
         if option in options:
