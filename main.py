@@ -473,26 +473,32 @@ def choose_theme():
         '26': 'cyan_to_blue',
         '27': 'rainbow'
     }
+    current_theme = load_theme()
     while True:
-        print(Colorate.Vertical(getattr(Colors, theme), theme_menu, 1))
-        theme = input(Colors.green + " └──> ").strip().lower()
-        if theme in themes:
-            selected_theme = themes[theme]
+        try:
+            print(Colorate.Vertical(getattr(Colors, current_theme), theme_menu, 1))
+        except AttributeError:
+            input(Colors.red + "Error: Invalid color attribute for the current theme. Press Enter to reload. \n   >>>   ")                      
+            choose_theme()
+            break        
+        theme_choice = input(Colors.green + " └──> ").strip().lower()        
+        if theme_choice in themes:
+            selected_theme = themes[theme_choice]
             try:
                 with open('theme.json', 'w') as file:
                     json.dump({"theme": selected_theme}, file)
-                print(Colors.yellow + f"\nTheme '{selected_theme}' set successfully. Script must be reloaded.")
-                print(Colors.green + "")
+                choose_theme()
+                break
             except IOError as e:
                 print(Colors.red + f"An error occurred while saving the theme: {e}")
             break
-        elif theme == "m": 
+        elif theme_choice == "m": 
             main()
             break
         else:
-            print(Colors.red + "Invalid option, please try again.")
-
-  
+            input(Colors.red + "Invalid option, press Enter to try again. \n   >>>   ")
+            choose_theme()
+                                    
 def help_menu():
     theme = load_theme()
     subprocess.run(['clear'])
