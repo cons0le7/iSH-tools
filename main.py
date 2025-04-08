@@ -426,7 +426,7 @@ def choose_theme():
 ╔══════════════════════════════════════════════════════════════╗
 ║                          <Themes>                            ║
 ╠═════════════════════════════╦════════════════════════════════╣
-║        Dark Mode Only       ║        Light Mode Only         ║
+║      <Dark Mode Only>       ║        <Light Mode Only>       ║
 ╠═════════════════════════════╩════════════════════════════════╣
 ║     [1] white               ║     [6] black                  ║
 ║     [2] white_to_black      ║     [7] black_to_white         ║
@@ -434,7 +434,7 @@ def choose_theme():
 ║     [4] white_to_green      ║     [9] black_to_green         ║
 ║     [5] white_to_blue       ║     [10] black_to_blue         ║
 ╠═════════════════════════════╩════════════════════════════════╣
-║                         Colors                               ║
+║                          <Colors>                            ║
 ╠═════════════════════════════╦════════════════════════════════╣
 ║     [11] red                ║     [20] turquoise             ║
 ║     [12] green              ║     [21] light_gray            ║
@@ -446,7 +446,7 @@ def choose_theme():
 ║     [18] orange             ║     [27] dark_green            ║
 ║     [19] pink               ║     [28] dark_blue             ║
 ╠═════════════════════════════╩════════════════════════════════╣
-║                          Gradients                           ║
+║                         <Gradients>                          ║
 ╠═════════════════════════════╦════════════════════════════════╣
 ║     [29] red_to_black       ║     [42] yellow_to_green       ║
 ║     [30] red_to_white       ║     [43] purple_to_red         ║
