@@ -7,15 +7,16 @@ When I first downloaded iSH Shell, I searched everywhere for tools related to cy
 
 ## Single-Paste Install: 
 ```
+cd $HOME
 apk add python3 
 apk add py3-pip 
 apk add bash
 apk add git 
 pip3 install pystyle 
 git clone https://github.com/cons0le7/iSH-tools
-cd ./iSH-tools/tools
+cd $HOME/iSH-tools/tools
 chmod +x *.sh
-cd ./.. 
+cd .. 
 python3 main.py
 ```
 ## Credits: 
