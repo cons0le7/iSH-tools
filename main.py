@@ -311,24 +311,16 @@ def gnupg():
             print(Colors.green + " Invalid choice. Enter 'y' or 'n'.\n >>> ")
             gnupg()
             
+import os
+import subprocess
+
 def install_all():
     os.chdir('./tools')
-    subprocess.run(['bash','all.sh'])
+    subprocess.run(['bash', 'all.sh'])
     os.chdir('./..')
-    install_true("1") 
-    install_true("2")   
-    install_true("3")
-    install_true("4")
-    install_true("5")
-    install_true("6")
-    install_true("7")
-    install_true("8")
-    install_true("9")
-    install_true("10")
-    install_true("11")
-    install_true("12")
-    install_true("13")
-    input(Colors.green +" >>> ")
+    for i in range(1, 14):
+        install_true(str(i))
+    input(Colors.green + " >>> ")
     main()
 
 def zipbrute(): 
