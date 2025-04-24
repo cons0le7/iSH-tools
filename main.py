@@ -310,9 +310,6 @@ def gnupg():
         else:
             print(Colors.green + " Invalid choice. Enter 'y' or 'n'.\n >>> ")
             gnupg()
-            
-import os
-import subprocess
 
 def install_all():
     os.chdir('./tools')
