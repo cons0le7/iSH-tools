@@ -1,4 +1,4 @@
-cd tools
+cd $HOME/iSH-tools/tools
 echo "Installing FileBruteForcers"
 git clone https://github.com/midwestcoder2020/FileBruteforcers
 echo "Installing dependencies" 
