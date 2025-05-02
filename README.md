@@ -16,9 +16,13 @@ pip3 install pystyle
 git clone https://github.com/cons0le7/iSH-tools
 cd $HOME/iSH-tools/tools
 chmod +x *.sh
-cd .. 
-python3 main.py
+cd ..
+chmod +x hack
+cp $HOME/iSH-tools/hack /usr/bin/hack
+hack
 ```
+You can call the script any time from terminal with the command: `hack`.
+
 ## Credits: 
 
 [Recon-ng](https://github.com/lanmaster53/recon-ng)
