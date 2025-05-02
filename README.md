@@ -21,7 +21,7 @@ chmod +x hack
 cp $HOME/iSH-tools/hack /usr/bin/hack
 hack
 ```
-You can call the script any time from terminal with the command: `hack`.
+You can call the script any time from terminal with the command: `hack`
 
 ## Credits: 
 
