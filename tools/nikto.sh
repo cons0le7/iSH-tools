@@ -1,4 +1,4 @@
-cd tools 
+cd $HOME/iSH-tools/tools
 echo ""
 echo "Installing Nikto..."
 apk add perl 
