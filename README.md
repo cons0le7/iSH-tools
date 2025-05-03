@@ -17,11 +17,21 @@ git clone https://github.com/cons0le7/iSH-tools
 cd $HOME/iSH-tools/tools
 chmod +x *.sh
 cd ..
+python3 main.py
+```
+To make the script callable from terminal:
+```
+cd $HOME/iSH-tools
 chmod +x hack
 cp $HOME/iSH-tools/hack /usr/bin/hack
-hack
 ```
-You can call the script any time from terminal with the command: `hack`
+By doing this you can call the script any time from terminal with the command: `hack`
+
+If you want the script to be called from a different command: 
+change "hack" at the end of the last line above to whatever command you would like the script to be called from. It should look like: `cp $HOME/iSH-tools/hack /usr/bin/COMMANDNAMEHERE`
+Just make sure the name you choose does not conflict with any other installed package names.
+
+
 
 ## Credits: 
 
