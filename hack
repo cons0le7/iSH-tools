@@ -705,7 +705,8 @@ def main():
         if option in options:
             options[option]()
             break
-        elif option == "x": 
+        elif option == "x":
+            subprocess.call(['clear'])
             sys.exit()
         else:
             input(Colors.red + "Invalid option, press Enter to try again. \n   >>>   ")
