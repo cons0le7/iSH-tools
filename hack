@@ -14,14 +14,24 @@ def load_theme():
         return "rainbow" 
 
 def install_true(key_to_update):
-    with open('check.json', 'r') as file:
-        data = json.load(file)
-    if key_to_update in data.get('tools', {}) and data['tools'][key_to_update] is False:
-        data['tools'][key_to_update] = True
-    with open('check.json', 'w') as file:
-        json.dump(data, file, indent=4)
+    file_path = os.path.expanduser('~/iSH-tools/check.json')
+    try:
+        with open(file_path, 'r') as file:
+            data = json.load(file)
+    except FileNotFoundError:
+        data = {"tools": {}}
+    except json.JSONDecodeError:
+        data = {"tools": {}}
+    if 'tools' not in data:
+        data['tools'] = {}
+    data['tools'][key_to_update] = True
+    try:
+        with open(file_path, 'w') as file:
+            json.dump(data, file, indent=4)
+    except IOError:
+        pass
 
-def check_install(filename='check.json'):
+def check_install(filename=os.path.expanduser('~/iSH-tools/check.json')):
     with open(filename, 'r') as f:
         return json.load(f)
 
@@ -30,7 +40,9 @@ def tool_installed(tool_id):
     return tools_status['tools'].get(tool_id, False)
 
 def install_tool(tool_sh):
-    script_path = os.path.join(os.getcwd(), 'tools', tool_sh)
+    script_directory = os.path.expanduser('~/iSH-tools/tools')
+    script_path = os.path.join(script_directory, tool_sh)
+
     try:
         with subprocess.Popen(['bash', script_path], stdout=subprocess.PIPE, text=True) as process:
             while True:
@@ -43,7 +55,7 @@ def install_tool(tool_sh):
         print(f" The script '{script_path}' was not found.")
     except Exception as e:
         print(f" An unexpected error occurred: {e}")
-
+        
 def recon_ng():
     if tool_installed("1"):
         try:
@@ -72,11 +84,11 @@ def recon_ng():
 def nikto():
     if tool_installed("2"):
         try:
-            print(Colors.yellow + "Starting shell in ./tools/nikto/program \nCtrl+C once to stop operations within shell and then 'exit' to exit.")
+            print(Colors.yellow + "Starting shell in ~/iSH-tools/tools/nikto/program \nCtrl+C once to stop operations within shell and then 'exit' to exit.")
             print(Colors.cyan + "Example Usage: perl nikto.pl -h http://www.example.com")
-            os.chdir('./tools/nikto/program')
-            subprocess.call(['bash']) 
-            sys.exit() 
+            os.chdir(os.path.expanduser('~/iSH-tools/tools/nikto/program'))
+            subprocess.call(['bash'])
+            sys.exit()
         except Exception as e:
             print(f"An error occurred while running the script: {e}")
     else:
@@ -93,7 +105,7 @@ def nikto():
         else:
             print(Colors.green + " Invalid choice. Enter 'y' or 'n'.\n >>> ")
             nikto()
-                    
+                                
 def dns_recon():
     if tool_installed("3"):
         try:
@@ -126,16 +138,16 @@ def udpscan():
             try:
                 print(Colors.yellow + "Executing UDPSCAN... ")
                 print(Colors.cyan + "Ctrl+C to exit.")
-                os.chdir('./tools/UDPSCAN')
+                os.chdir(os.path.expanduser('~/iSH-tools/tools/UDPSCAN'))
                 subprocess.run(['python3','UDPSCAN.py']) 
                 sys.exit() 
             except Exception as e:
                 print(f"An error occurred while running the script: {e}")
         elif udpscan_choice == '2':
             try:
-                print(Colors.yellow + "Starting shell in ./tools/UDPSCAN ")
+                print(Colors.yellow + "Starting shell in ~/iSH-tools/tools/UDPSCAN ")
                 print(Colors.yellow + "Type 'exit' to exit. ")
-                os.chdir('./tools/UDPSCAN')
+                os.chdir(os.path.expanduser('~/iSH-tools/tools/UDPSCAN'))
                 subprocess.run(['python3','UDPSCAN.py','-h']) 
                 subprocess.call(['bash'])
                 sys.exit() 
@@ -162,9 +174,9 @@ def udpscan():
 def infoga():
     if tool_installed("5"):
         try:
-            print(Colors.yellow + "Starting shell in ./tools/Infoga-py3 \nType 'exit' to exit.")
+            print(Colors.yellow + "Starting shell in ~/iSH-tools/tools/Infoga-py3 \nType 'exit' to exit.")
             print(Colors.cyan + "Example Usage: python3 infoga.py --target website.com --source all")
-            os.chdir('./tools/Infoga-py3')
+            os.chdir(os.path.expanduser('~/iSH-tools/tools/Infoga-py3'))
             subprocess.run(['python3','infoga.py']) 
             subprocess.call(['bash']) 
             sys.exit() 
@@ -188,8 +200,8 @@ def infoga():
 def peepler():
     if tool_installed("6"):
         try:
-            print(Colors.yellow + "\nStarting shell in ./tools/peepler-iSH \nEnter 'exit' once to stop script, twice to exit shell.")
-            os.chdir('./tools/peepler-iSH')
+            print(Colors.yellow + "\nStarting shell in ~/iSH-tools/tools/peepler-iSH \nEnter 'exit' once to stop script, twice to exit shell.")
+            os.chdir(os.path.expanduser('~/iSH-tools/tools/peepler-iSH'))
             subprocess.run(['python3','main.py']) 
             subprocess.call(['bash']) 
             sys.exit() 
@@ -213,9 +225,9 @@ def peepler():
 def intel_base():
     if tool_installed("7"):
         try:
-            print(Colors.yellow + "\nStarting shell in ./tools/IntelBase-CLI \nUse option 3 to exit program, then type 'exit' to exit shell.")
+            print(Colors.yellow + "\nStarting shell in ~/iSH-tools/tools/IntelBase-CLI \nUse option 3 to exit program, then type 'exit' to exit shell.")
             print(Colors.green + "")
-            os.chdir('./tools/IntelBase-CLI')
+            os.chdir(os.path.expanduser('~/iSH-tools/tools/IntelBase-CLI'))
             subprocess.run(['python3','intelbase.py']) 
             subprocess.call(['bash']) 
             sys.exit() 
@@ -239,9 +251,9 @@ def intel_base():
 def xsstrike():
     if tool_installed("8"):
         try:
-            print(Colors.yellow + "\nStarting shell in ./tools/XSStrike \nType 'exit' to exit.")
+            print(Colors.yellow + "\nStarting shell in ~/iSH-tools/tools/XSStrike \nType 'exit' to exit.")
             print(Colors.green + "")
-            os.chdir('./tools/XSStrike')
+            os.chdir(os.path.expanduser('~/iSH-tools/tools/XSStrike'))
             subprocess.run(['python3','xsstrike.py']) 
             subprocess.call(['bash']) 
             sys.exit() 
@@ -313,9 +325,9 @@ def gnupg():
             gnupg()
 
 def install_all():
-    os.chdir('./tools')
+    os.chdir(os.path.expanduser('~/iSH-tools/tools'))
     subprocess.run(['bash', 'all.sh'])
-    os.chdir('./..')
+    os.chdir(os.path.expanduser('~/iSH-tools/..'))
     for i in range(1, 14):
         install_true(str(i))
     input(Colors.green + " >>> ")
@@ -324,9 +336,9 @@ def install_all():
 def zipbrute(): 
     if tool_installed("10"):
         try:
-            print(Colors.yellow + "\nStarting shell in ./tools/FileBruteforcers \nCtrl+C to exit shell.")
+            print(Colors.yellow + "\nStarting shell in ~/iSH-tools/tools/FileBruteforcers \nCtrl+C to exit shell.")
             print(Colors.green + "")
-            os.chdir('./tools/FileBruteforcers')
+            os.chdir(os.path.expanduser('~/iSH-tools/tools/FileBruteforcers'))
             subprocess.run(['python3','zipbrute.py']) 
             subprocess.call(['bash']) 
             sys.exit() 
@@ -351,9 +363,9 @@ def zipbrute():
 def pdfbrute(): 
     if tool_installed("11"):
         try:
-            print(Colors.yellow + "\nStarting shell in ./tools/FileBruteforcers \nCtrl+C to exit shell.")
+            print(Colors.yellow + "\nStarting shell in ~/iSH-tools/tools/FileBruteforcers \nCtrl+C to exit shell.")
             print(Colors.green + "")
-            os.chdir('./tools/FileBruteforcers')
+            os.chdir(os.path.expanduser('~/iSH-tools/tools/FileBruteforcers'))
             subprocess.run(['python3','pdfbrute.py']) 
             subprocess.call(['bash']) 
             sys.exit() 
@@ -378,9 +390,9 @@ def pdfbrute():
 def sqlmap(): 
     if tool_installed("9"):
         try:
-            print(Colors.yellow + "Starting shell in ./tools/sqlmap-dev \nType 'exit' to exit.")
+            print(Colors.yellow + "Starting shell in ~/iSH-tools/tools/sqlmap-dev \nType 'exit' to exit.")
             print(Colors.cyan + """Example Usage: python3 sqlmap -u "http://192.168.1.250/?p=1&forumaction=search" --dbs """)
-            os.chdir('./tools/sqlmap-dev')
+            os.chdir(os.path.expanduser('~/iSH-tools/tools/sqlmap-dev'))
             subprocess.run(['python3','sqlmap.py','-h']) 
             subprocess.call(['bash']) 
             sys.exit() 
