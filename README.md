@@ -38,8 +38,9 @@ cp $HOME/iSH-tools/hack /usr/bin/COMMANDNAMEHERE
 
 Just make sure the name you choose does not conflict with any other installed package names.
 
-> [!Note] 
-> <br>Works best with font size set to 10 or lower. <br><br>
+> [!Note]
+> ---
+> Works best with font size set to 10 or lower. <br><br>
 > Tools can take some time to load in the shell environment, wait for them to appear before using. Nikto can be used right away.
 > <br>
 ## Credits: 
