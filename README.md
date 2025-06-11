@@ -2,6 +2,8 @@
 **Security toolkit for iSH Shell.**
 
 When I first downloaded iSH Shell, I searched everywhere for tools related to cybersecurity and ethical hacking but found very few that actually worked. I spent about a year learning iSH, familiarizing myself with Alpine, testing different tools and modifying their installs to work within iSH, as well as  writing some of my own iSH compatible scripts. I have decided to put together a neatly packaged and easy to use toolkit for others who may be looking for the same thing. I plan on updating this whenever I find more useful things. Recommendations and contributions are always welcome!
+> [!Warning]
+> These tools are intended to be used legally and ethically. Do not use them against anything that you do not own or do not have permission to use them against. I am not responsible for any use or misuse of these tools. 
 
 ![Image](https://github.com/user-attachments/assets/cd5c653c-e553-4ae8-941a-a7705195edf1) 
 
@@ -57,6 +59,3 @@ Just make sure the name you choose does not conflict with any other installed pa
 ## Additional Notes:
 - Works best with font size set to 10 or lower.
 - Tools can take some time to load in the shell environment, wait for them to appear before using. Nikto can be used right away.
-
-## Disclaimer: 
-These tools are intended to be used legally and ethically. Do not use them against anything that you do not own or do not have permission to use them against. I am not responsible for any use or misuse of these tools. 
