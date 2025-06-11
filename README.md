@@ -56,6 +56,6 @@ Just make sure the name you choose does not conflict with any other installed pa
 [OpenSSL](http://openssl-library.org) 
 [GnuPG](https://gnupg.org)
 
-[!Note] 
+> [!Note] 
 > Works best with font size set to 10 or lower.
 > Tools can take some time to load in the shell environment, wait for them to appear before using. Nikto can be used right away.
