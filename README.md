@@ -21,7 +21,8 @@ git clone https://github.com/cons0le7/iSH-tools
 cd $HOME/iSH-tools/tools
 chmod +x *.sh
 cd ..
-python3 main.py
+chmod +x iSH-tools
+./iSH-tools
 ```
 To make the script callable from terminal:
 ```
