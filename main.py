@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 from pystyle import Colors, Colorate
 import subprocess
 import json
@@ -184,30 +185,31 @@ def infoga():
             print(Colors.green + " Invalid choice. Enter 'y' or 'n'.\n >>> ")
             infoga()
 
-def peepler():
+def nosint():
     if tool_installed("6"):
         try:
-            print(Colors.yellow + "\nStarting shell in ./tools/peepler-iSH \nEnter 'exit' once to stop script, twice to exit shell.")
-            os.chdir('./tools/peepler-iSH')
-            subprocess.run(['python3','main.py']) 
+            print(Colors.yellow + "\nStarting shell in ./tools/nosint \nCtrl+C to stop script and exit shell. ")
+            os.chdir('./tools/nosint')
+            print(Colors.green)
+            subprocess.run(['python3','nosint']) 
             subprocess.call(['bash']) 
             sys.exit() 
         except Exception as e:
             print(f"An error occurred while running the script: {e}")
     else:
-        install_option = input(Colors.green + " Peepler is not installed. Install now? (y/n):\n >>> ")
+        install_option = input(Colors.green + " NoSint is not installed. Install now? (y/n):\n >>> ")
         install_option = install_option.strip().lower()
         if install_option == 'y':
-            tool_sh = 'peepler.sh'
+            tool_sh = 'nosint.sh'
             install_tool(tool_sh)
             install_true("6")
             input(Colors.green + " Press Enter to run script.\n >>> ")
-            peepler()
+            nosint()
         elif install_option == 'n':
             main()
         else:
             print(Colors.green + " Invalid choice. Enter 'y' or 'n'.\n >>> ")
-            peepler()
+            nosint()
 
 def intel_base():
     if tool_installed("7"):
@@ -587,7 +589,7 @@ def help_menu():
 ╠══════════════╬═══════════════════════════════════════════════╣
 ║ Infoga       ║ https://github.com/The404Hacking/Infoga       ║
 ╠══════════════╬═══════════════════════════════════════════════╣
-║ Peepler      ║ https://github.com/scarlmao/peepler           ║
+║ NoSint       ║ https://github.com/cons0le7/nosint            ║
 ╠══════════════╬═══════════════════════════════════════════════╣
 ║ IntelBase    ║ https://github.com/cons0le7/IntelBase-CLI     ║
 ╠══════════════╬═══════════════════════════════════════════════╣
@@ -658,7 +660,7 @@ def main():
 ║                             ║      ├── [12] OpenSSL          ║
 ║  OSINT                      ║      └── [13] GnuPG            ║
 ║      ├── [5] Infoga         ║                                ║
-║      ├── [6] Peepler        ║  Options                       ║
+║      ├── [6] NoSint *       ║  Options                       ║
 ║      └── [7] IntelBase *    ║      ├── [i] Install All       ║
 ║                             ║      ├── [t] Themes            ║
 ║  Web-App Testing            ║      ├── [x] Exit              ║
@@ -685,7 +687,7 @@ def main():
         "3": dns_recon,
         "4": udpscan,
         "5": infoga,
-        "6": peepler,
+        "6": nosint,
         "7": intel_base,
         "8": xsstrike,
         "9": sqlmap,
