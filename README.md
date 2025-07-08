@@ -30,11 +30,7 @@ ln -s $HOME/iSH-tools/iSH-tools /usr/bin/hack
 By doing this you can call the script any time with the command: `hack`
 
 If you want the script to be called from a different command: 
-change "hack" at the end of the last line above to whatever command you would like the script to be called from. It should look like: 
-
-`cp $HOME/iSH-tools/hack /usr/bin/COMMANDNAMEHERE`
-
-Just make sure the name you choose does not conflict with any other installed package names.
+change "hack" at the end of the line above to whatever command you would like the script to be called from. Just make sure the name you choose does not conflict with any other installed package names.
 
 > [!Note]
 > ___
