@@ -42,6 +42,7 @@ Replace "hack" with your set command name if it is different.
 > [!Note]
 > ___
 > Works best with font size set to 10 or lower. <br><br>
+> Some tools take a while to install. Keep iSH Shell open until install is complete. <br><br>
 > Tools can take some time to load in the shell environment, wait for them to appear before using. Nikto can be used right away.
 > <br>
 
