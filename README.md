@@ -46,7 +46,7 @@ change "hack" at the end of the line above to whatever command you would like th
 [DNSrecon](https://github.com/darkoperator/dnsrecon) 
 [UDPSCAN](https://github.com/cons0le7/UDPSCAN) 
 [Infoga](https://github.com/The404Hacking/Infoga)
-[Peepler](https://github.com/scarlmao/peepler)
+[NoSint](https://nosint.org)
 [IntelBase](https://github.com/cons0le7/IntelBase-CLI) 
 [XSStrike](https://github.com/s0md3v/XSStrike) 
 [sqlmap](https://github.com/sqlmapproject/sqlmap) 
