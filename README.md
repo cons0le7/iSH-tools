@@ -39,6 +39,7 @@ rm /usr/bin/hack
 ``` 
 Replace "hack" with your set command name if it is different. 
 
+
 > [!Note]
 > ___
 > Works best with font size set to 10 or lower. <br><br>
