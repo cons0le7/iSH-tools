@@ -21,11 +21,11 @@ echo "Installing dependencies..."
 pip3 install requests
 echo "Infoga Installed!"
 
-echo "Installing Peepler"
-git clone https://github.com/cons0le7/peepler-iSH.git
+echo "Installing NoSint"
+git clone https://github.com/cons0le7/nosint
 echo "Installing Dependencies... "
 pip3 install bs4 requests 
-echo "Peepler Installed!"
+echo "NoSint Installed!"
 
 echo "Installing IntelBase..."
 git clone https://github.com/cons0le7/IntelBase-CLI
