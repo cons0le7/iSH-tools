@@ -10,7 +10,7 @@ When I first downloaded iSH Shell, I searched everywhere for tools related to cy
 ![Image](https://github.com/user-attachments/assets/e54b1b62-d591-4fc6-bd4d-70f4071cfbc9)
 
 >[!Tip]
-> Set font size in iSH settings to 10 or lower for best experience
+> Set font size in iSH settings to 10 or lower for the best experience.
 
 ## Single-Paste Install: 
 ```
