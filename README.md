@@ -9,6 +9,9 @@ When I first downloaded iSH Shell, I searched everywhere for tools related to cy
 
 ![Image](https://github.com/user-attachments/assets/e54b1b62-d591-4fc6-bd4d-70f4071cfbc9)
 
+>[!Tip]
+> Set font size in iSH settings to 10 or lower for best experience
+
 ## Single-Paste Install: 
 ```
 cd $HOME
@@ -37,7 +40,6 @@ rm /usr/bin/hack
 ___
 > [!Note]
 > ___
-> Works best with font size set to 10 or lower. <br><br>
 > Some tools take a while to install. Keep iSH Shell open until complete. <br><br>
 > Tools can take some time to load in the shell environment, wait for them to appear before using. Nikto can be used right away.
 > <br>
