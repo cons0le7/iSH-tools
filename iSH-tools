@@ -22,6 +22,8 @@ def install_true(key_to_update):
         json.dump(data, file, indent=4)
 
 def check_install(filename='check.json'):
+    os.chdir(os.path.expanduser('~'))
+    os.chdir('./iSH-tools')
     with open(filename, 'r') as f:
         return json.load(f)
 
