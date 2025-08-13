@@ -36,7 +36,12 @@ change "hack" at the end of the line above to whatever command you would like th
 To remove the symlink: 
 ```
 rm /usr/bin/hack
-``` 
+```
+## Uninstall 
+```
+rm -r ~/iSH-tools
+rm /usr/bin/hack
+```
 ___
 > [!Note]
 > ___
