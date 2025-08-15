@@ -316,7 +316,8 @@ def gnupg():
             gnupg()
 
 def install_all():
-    os.chdir('./tools')
+    os.chdir(os.path.expanduser('~'))    
+    os.chdir('./iSH-tools/tools')
     subprocess.run(['bash', 'all.sh'])
     os.chdir('./..')
     for i in range(1, 14):
