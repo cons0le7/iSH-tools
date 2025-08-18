@@ -50,7 +50,7 @@ ___
 > <br> 
 
 --- 
-### Contact for help & suggestions 
+### Contact for help & suggestions: 
 [Instagram](http://instagram.com/con5ole) 
 [Discord](https://discordapp.com/users/413853735211761670)
 
