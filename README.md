@@ -54,7 +54,10 @@ ___
 [Instagram](http://instagram.com/con5ole) 
 [Discord](https://discordapp.com/users/413853735211761670)
 
-## Credits: 
+
+## 🛠 Third-Party Tools & Licenses
+
+iSH-tools integrates several third-party tools. **These tools remain under their original licenses**. This tool does **not include their binaries or source code**; They are installed from their official repositories.
 
 [Recon-ng](https://github.com/lanmaster53/recon-ng)
 [Nikto](https://github.com/sullo/nikto)
