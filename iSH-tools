@@ -191,6 +191,8 @@ def blackbird():
     if tool_installed("6"):
         try:
             print(Colors.yellow + "\nStarting shell in ./tools/blackbird-iSH \nCtrl+C to stop script, then 'exit' to exit shell. ")
+            print(Colors.cyan + "Set up AI: python3 blackbird.py --setup-ai")
+            print(Colors.cyan + "Example Usage: python3 blackbird.py --username johndoe --ai")
             os.chdir('./tools/blackbird-iSH')
             print(Colors.green)
             subprocess.run(['python3','blackbird.py']) 
