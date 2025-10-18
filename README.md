@@ -67,6 +67,7 @@ iSH-tools integrates several third-party tools. **These tools remain under their
 [DNSrecon](https://github.com/darkoperator/dnsrecon) 
 [UDPSCAN](https://github.com/cons0le7/UDPSCAN) 
 [Infoga](https://github.com/The404Hacking/Infoga)
+[BlackBird](https://github.com/p1ngul1n0/blackbird)
 [NoSint](https://nosint.org)
 [IntelBase](https://github.com/cons0le7/IntelBase-CLI) 
 [XSStrike](https://github.com/s0md3v/XSStrike) 
