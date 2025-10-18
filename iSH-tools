@@ -187,8 +187,34 @@ def infoga():
             print(Colors.green + " Invalid choice. Enter 'y' or 'n'.\n >>> ")
             infoga()
 
-def nosint():
+def blackbird():
     if tool_installed("6"):
+        try:
+            print(Colors.yellow + "\nStarting shell in ./tools/blackbird-iSH \nCtrl+C to stop script, then 'exit' to exit shell. ")
+            os.chdir('./tools/blackbird-iSH')
+            print(Colors.green)
+            subprocess.run(['python3','blackbird.py']) 
+            subprocess.call(['bash']) 
+            sys.exit() 
+        except Exception as e:
+            print(f"An error occurred while running the script: {e}")
+    else:
+        install_option = input(Colors.green + " BlackBird is not installed. Install now? (y/n):\n >>> ")
+        install_option = install_option.strip().lower()
+        if install_option == 'y':
+            tool_sh = 'blackbird.sh'
+            install_tool(tool_sh)
+            install_true("6")
+            input(Colors.green + " Press Enter to run script.\n >>> ")
+            blackbird()
+        elif install_option == 'n':
+            main()
+        else:
+            print(Colors.green + " Invalid choice. Enter 'y' or 'n'.\n >>> ")
+            blackbird()
+
+def nosint():
+    if tool_installed("7"):
         try:
             print(Colors.yellow + "\nStarting shell in ./tools/nosint \nCtrl+C to stop script and exit shell. ")
             os.chdir('./tools/nosint')
@@ -204,7 +230,7 @@ def nosint():
         if install_option == 'y':
             tool_sh = 'nosint.sh'
             install_tool(tool_sh)
-            install_true("6")
+            install_true("7")
             input(Colors.green + " Press Enter to run script.\n >>> ")
             nosint()
         elif install_option == 'n':
@@ -214,7 +240,7 @@ def nosint():
             nosint()
 
 def intel_base():
-    if tool_installed("7"):
+    if tool_installed("8"):
         try:
             print(Colors.yellow + "\nStarting shell in ./tools/IntelBase-CLI \nUse option 3 to exit program, then type 'exit' to exit shell.")
             print(Colors.green + "")
@@ -230,7 +256,7 @@ def intel_base():
         if install_option == 'y':
             tool_sh = 'intelbase.sh'
             install_tool(tool_sh)
-            install_true("7")
+            install_true("8")
             input(Colors.green + " Press Enter to run script.\n >>> ")
             intel_base()
         elif install_option == 'n':
@@ -240,7 +266,7 @@ def intel_base():
             intel_base()
 
 def xsstrike():
-    if tool_installed("8"):
+    if tool_installed("9"):
         try:
             print(Colors.yellow + "\nStarting shell in ./tools/XSStrike \nType 'exit' to exit.")
             print(Colors.green + "")
@@ -256,7 +282,7 @@ def xsstrike():
         if install_option == 'y':
             tool_sh = 'xsstrike.sh'
             install_tool(tool_sh)
-            install_true("8")
+            install_true("9")
             input(Colors.green + " Press Enter to run script.\n >>> ")
             xsstrike()
         elif install_option == 'n':
@@ -266,7 +292,7 @@ def xsstrike():
             xsstrike()
 
 def openssl():
-    if tool_installed("12"):
+    if tool_installed("13"):
         try:
             print(Colors.yellow + "\nStarting shell... \nType 'exit' to exit.")
             print(Colors.green + "")
@@ -281,7 +307,7 @@ def openssl():
         if install_option == 'y':
             tool_sh = 'openssl.sh'
             install_tool(tool_sh)
-            install_true("12")
+            install_true("13")
             input(Colors.green + " Press Enter to run script.\n >>> ")
             openssl()
         elif install_option == 'n':
@@ -291,7 +317,7 @@ def openssl():
             openssl()
             
 def gnupg():
-    if tool_installed("13"):
+    if tool_installed("14"):
         try:
             print(Colors.yellow + "\nStarting shell... \nType 'exit' to exit.")
             print(Colors.green + "")
@@ -306,7 +332,7 @@ def gnupg():
         if install_option == 'y':
             tool_sh = 'gnupg.sh'
             install_tool(tool_sh)
-            install_true("13")
+            install_true("14")
             input(Colors.green + " Press Enter to run script.\n >>> ")
             gnupg()
         elif install_option == 'n':
@@ -320,13 +346,13 @@ def install_all():
     os.chdir('./iSH-tools/tools')
     subprocess.run(['bash', 'all.sh'])
     os.chdir('./..')
-    for i in range(1, 14):
+    for i in range(1, 15):
         install_true(str(i))
     input(Colors.green + " >>> ")
     main()
 
 def zipbrute(): 
-    if tool_installed("10"):
+    if tool_installed("11"):
         try:
             print(Colors.yellow + "\nStarting shell in ./tools/FileBruteforcers \nCtrl+C to exit shell.")
             print(Colors.green + "")
@@ -342,8 +368,8 @@ def zipbrute():
         if install_option == 'y':
             tool_sh = 'filebruteforcers.sh'
             install_tool(tool_sh)
-            install_true("10")
             install_true("11")
+            install_true("12")
             input(Colors.green + " Press Enter to run script.\n >>> ")
             zipbrute()
         elif install_option == 'n':
@@ -353,7 +379,7 @@ def zipbrute():
             zipbrute() 
 
 def pdfbrute(): 
-    if tool_installed("11"):
+    if tool_installed("12"):
         try:
             print(Colors.yellow + "\nStarting shell in ./tools/FileBruteforcers \nCtrl+C to exit shell.")
             print(Colors.green + "")
@@ -369,8 +395,8 @@ def pdfbrute():
         if install_option == 'y':
             tool_sh = 'filebruteforcers.sh'
             install_tool(tool_sh)
-            install_true("10")
             install_true("11")
+            install_true("12")
             input(Colors.green + " Press Enter to run script.\n >>> ")
             pdfbrute()
         elif install_option == 'n':
@@ -380,7 +406,7 @@ def pdfbrute():
             pdfbrute()  
 
 def sqlmap(): 
-    if tool_installed("9"):
+    if tool_installed("10"):
         try:
             print(Colors.yellow + "Starting shell in ./tools/sqlmap-dev \nType 'exit' to exit.")
             print(Colors.cyan + """Example Usage: python3 sqlmap -u "http://192.168.1.250/?p=1&forumaction=search" --dbs """)
@@ -396,7 +422,7 @@ def sqlmap():
         if install_option == 'y':
             tool_sh = 'sqlmap.sh'
             install_tool(tool_sh)
-            install_true("9")
+            install_true("10")
             input(Colors.green + " Press Enter to run script.\n >>> ")
             sqlmap()
         elif install_option == 'n':
@@ -592,6 +618,8 @@ def help_menu():
 ╠══════════════╬═══════════════════════════════════════════════╣
 ║ Infoga       ║ https://github.com/The404Hacking/Infoga       ║
 ╠══════════════╬═══════════════════════════════════════════════╣
+║ BlackBird    ║ https://github.com/cons0le7/blackbird-iSH     ║
+╠══════════════╬═══════════════════════════════════════════════╣
 ║ NoSint       ║ https://github.com/cons0le7/nosint            ║
 ╠══════════════╬═══════════════════════════════════════════════╣
 ║ IntelBase    ║ https://github.com/cons0le7/IntelBase-CLI     ║
@@ -656,19 +684,20 @@ def main():
 ║                https://github.com/cons0le7                   ║
 ╠═════════════════════════════╦════════════════════════════════╣
 ║  Reconnaissance             ║  Password Cracking             ║
-║      ├── [1] Recon-ng       ║      ├── [10] ZipBrute (FBF)   ║
-║      ├── [2] Nikto          ║      └── [11] PDFBrute (FBF)   ║
+║      ├── [1] Recon-ng       ║      ├── [11] ZipBrute (FBF)   ║
+║      ├── [2] Nikto          ║      └── [12] PDFBrute (FBF)   ║
 ║      ├── [3] DNSrecon       ║                                ║
 ║      └── [4] UDPSCAN        ║  Cryptography                  ║
-║                             ║      ├── [12] OpenSSL          ║
-║  OSINT                      ║      └── [13] GnuPG            ║
+║                             ║      ├── [13] OpenSSL          ║
+║  OSINT                      ║      └── [14] GnuPG            ║
 ║      ├── [5] Infoga         ║                                ║
-║      ├── [6] NoSint *       ║  Options                       ║
-║      └── [7] IntelBase *    ║      ├── [i] Install All       ║
-║                             ║      ├── [t] Themes            ║
-║  Web-App Testing            ║      ├── [x] Exit              ║
-║      ├── [8] XSStrike       ║      ├── [?] Help              ║
-║      └── [9] sqlmap         ║      └── [!] Report an Issue   ║
+║      ├── [6] BlackBird      ║  Options                       ║
+║      ├── [7] NoSint *       ║      ├── [i] Install All       ║
+║      └── [8] IntelBase *    ║      ├── [t] Themes            ║
+║                             ║      ├── [x] Exit              ║
+║  Web-App Testing            ║      ├── [?] Help              ║
+║      ├── [9] XSStrike       ║      └── [!] Report an Issue   ║
+║      └── [10] sqlmap        ║                                ║
 ╠═════════════════════════════╩════════════════════════════════╣
 ║ * = API token required [$]                                   ║
 ╚══════════════════════════════════════════════════════════════╝"""
@@ -690,14 +719,15 @@ def main():
         "3": dns_recon,
         "4": udpscan,
         "5": infoga,
-        "6": nosint,
-        "7": intel_base,
-        "8": xsstrike,
-        "9": sqlmap,
-        "10": zipbrute,
-        "11": pdfbrute, 
-        "12": openssl,
-        "13": gnupg,
+        "6": blackbird,
+        "7": nosint,
+        "8": intel_base,
+        "9": xsstrike,
+        "10": sqlmap,
+        "11": zipbrute,
+        "12": pdfbrute, 
+        "13": openssl,
+        "14": gnupg,
         "t": choose_theme,
         "i": install_all,
         "?": help_menu,
