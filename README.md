@@ -23,19 +23,6 @@ cd ..
 chmod +x iSH-tools
 ./iSH-tools
 ```
-
-If you want the script to be called from a different command: 
-change "hack" at the end of the line above to whatever command you would like the script to be called from. Just make sure the name you choose does not conflict with any other installed package names. 
-
-To remove the symlink: 
-```
-rm /usr/bin/hack
-```
-## Uninstall 
-```
-rm -r ~/iSH-tools
-rm /usr/bin/hack
-```
 ___
 > [!Note]
 > ___
