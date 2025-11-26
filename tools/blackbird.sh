@@ -1,4 +1,4 @@
-cd $HOME/iSH-tools/tools
+cd tools
 echo "Installing BlackBird..."
 git clone https://github.com/cons0le7/blackbird-iSH
 echo "Installing dependencies..."
