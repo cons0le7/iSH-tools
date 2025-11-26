@@ -33,6 +33,7 @@ ___
 ## Updates 
 11/26/2025 
 - Program is now completely portable and can be installed in any directory. 
+
 10/17/2025 
 - Added BlackBird to OSINT tools.
 --- 
