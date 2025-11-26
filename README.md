@@ -14,11 +14,10 @@ When I first downloaded iSH Shell, I searched everywhere for tools related to cy
 
 ## Single-Paste Install: 
 ```
-cd $HOME
 apk add python3 py3-pip bash git
 pip3 install pystyle 
 git clone https://github.com/cons0le7/iSH-tools
-cd $HOME/iSH-tools/tools
+cd ./iSH-tools/tools
 chmod +x *.sh
 cd ..
 chmod +x iSH-tools
