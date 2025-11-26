@@ -5,34 +5,37 @@ import json
 import sys 
 import os
 
+HOME = os.path.dirname(os.path.abspath(__file__))
+
 def load_theme():
     try:
-        with open('theme.json', 'r') as file:
+        with open(os.path.join(HOME, 'theme.json'), 'r') as file:
             data = json.load(file)
             return data.get("theme", "rainbow") 
     except FileNotFoundError:
         return "rainbow" 
 
 def install_true(key_to_update):
-    with open('check.json', 'r') as file:
+    check_path = os.path.join(HOME, 'check.json')
+    with open(check_path, 'r') as file:
         data = json.load(file)
     if key_to_update in data.get('tools', {}) and data['tools'][key_to_update] is False:
         data['tools'][key_to_update] = True
-    with open('check.json', 'w') as file:
+    with open(check_path, 'w') as file:
         json.dump(data, file, indent=4)
 
 def check_install(filename='check.json'):
-    os.chdir(os.path.expanduser('~'))
-    os.chdir('./iSH-tools')
-    with open(filename, 'r') as f:
-        return json.load(f)
+    filepath = os.path.join(HOME, filename)  # or 'iSH-tools/check.json' if that's correct
+    with open(filepath, 'r') as f:
+        data = json.load(f)
+    return data
 
 def tool_installed(tool_id):
     tools_status = check_install()
     return tools_status['tools'].get(tool_id, False)
 
 def install_tool(tool_sh):
-    script_path = os.path.join(os.getcwd(), 'tools', tool_sh)
+    script_path = os.path.join(HOME, 'tools', tool_sh)  # remove extra iSH-tools
     try:
         with subprocess.Popen(['bash', script_path], stdout=subprocess.PIPE, text=True) as process:
             while True:
@@ -76,7 +79,7 @@ def nikto():
         try:
             print(Colors.yellow + "Starting shell in ./tools/nikto/program \nCtrl+C once to stop operations within shell and then 'exit' to exit.")
             print(Colors.cyan + "Example Usage: perl nikto.pl -h http://www.example.com")
-            os.chdir('./tools/nikto/program')
+            os.chdir(os.path.join(HOME, 'tools', 'nikto', 'program'))
             subprocess.call(['bash']) 
             sys.exit() 
         except Exception as e:
@@ -128,7 +131,7 @@ def udpscan():
             try:
                 print(Colors.yellow + "Executing UDPSCAN... ")
                 print(Colors.cyan + "Ctrl+C to exit.")
-                os.chdir('./tools/UDPSCAN')
+                os.chdir(os.path.join(HOME, 'tools', 'UDPSCAN'))
                 subprocess.run(['python3','UDPSCAN.py']) 
                 sys.exit() 
             except Exception as e:
@@ -137,7 +140,7 @@ def udpscan():
             try:
                 print(Colors.yellow + "Starting shell in ./tools/UDPSCAN ")
                 print(Colors.yellow + "Type 'exit' to exit. ")
-                os.chdir('./tools/UDPSCAN')
+                os.chdir(os.path.join(HOME, 'tools', 'UDPSCAN'))
                 subprocess.run(['python3','UDPSCAN.py','-h']) 
                 subprocess.call(['bash'])
                 sys.exit() 
@@ -166,7 +169,7 @@ def infoga():
         try:
             print(Colors.yellow + "Starting shell in ./tools/Infoga-py3 \nType 'exit' to exit.")
             print(Colors.cyan + "Example Usage: python3 infoga.py --target website.com --source all")
-            os.chdir('./tools/Infoga-py3')
+            os.chdir(os.path.join(HOME, 'tools', 'Infoga-py3'))
             subprocess.run(['python3','infoga.py']) 
             subprocess.call(['bash']) 
             sys.exit() 
@@ -193,7 +196,7 @@ def blackbird():
             print(Colors.yellow + "\nStarting shell in ./tools/blackbird-iSH \nCtrl+C to stop script, then 'exit' to exit shell. ")
             print(Colors.cyan + "Set up AI: python3 blackbird.py --setup-ai")
             print(Colors.cyan + "Example Usage: python3 blackbird.py --username johndoe --ai")
-            os.chdir('./tools/blackbird-iSH')
+            os.chdir(os.path.join(HOME, 'tools', 'blackbird-iSH'))
             print(Colors.green)
             subprocess.run(['python3','blackbird.py']) 
             subprocess.call(['bash']) 
@@ -219,7 +222,7 @@ def nosint():
     if tool_installed("7"):
         try:
             print(Colors.yellow + "\nStarting shell in ./tools/nosint \nCtrl+C to stop script and exit shell. ")
-            os.chdir('./tools/nosint')
+            os.chdir(os.path.join(HOME, 'tools', 'nosint'))
             print(Colors.green)
             subprocess.run(['python3','nosint']) 
             subprocess.call(['bash']) 
@@ -246,7 +249,7 @@ def intel_base():
         try:
             print(Colors.yellow + "\nStarting shell in ./tools/IntelBase-CLI \nUse option 3 to exit program, then type 'exit' to exit shell.")
             print(Colors.green + "")
-            os.chdir('./tools/IntelBase-CLI')
+            os.chdir(os.path.join(HOME, 'tools', 'IntelBase-CLI'))
             subprocess.run(['python3','intelbase.py']) 
             subprocess.call(['bash']) 
             sys.exit() 
@@ -272,7 +275,7 @@ def xsstrike():
         try:
             print(Colors.yellow + "\nStarting shell in ./tools/XSStrike \nType 'exit' to exit.")
             print(Colors.green + "")
-            os.chdir('./tools/XSStrike')
+            os.chdir(os.path.join(HOME, 'tools', 'XSStrike'))
             subprocess.run(['python3','xsstrike.py']) 
             subprocess.call(['bash']) 
             sys.exit() 
@@ -344,10 +347,8 @@ def gnupg():
             gnupg()
 
 def install_all():
-    os.chdir(os.path.expanduser('~'))    
-    os.chdir('./iSH-tools/tools')
-    subprocess.run(['bash', 'all.sh'])
-    os.chdir('./..')
+    tools_dir = os.path.join(HOME, 'tools')
+    subprocess.run(['bash', 'all.sh'], cwd=tools_dir, check=True)
     for i in range(1, 15):
         install_true(str(i))
     input(Colors.green + " >>> ")
@@ -358,7 +359,7 @@ def zipbrute():
         try:
             print(Colors.yellow + "\nStarting shell in ./tools/FileBruteforcers \nCtrl+C to exit shell.")
             print(Colors.green + "")
-            os.chdir('./tools/FileBruteforcers')
+            os.chdir(os.path.join(HOME, 'tools', 'FileBruteforcers'))
             subprocess.run(['python3','zipbrute.py']) 
             subprocess.call(['bash']) 
             sys.exit() 
@@ -385,7 +386,7 @@ def pdfbrute():
         try:
             print(Colors.yellow + "\nStarting shell in ./tools/FileBruteforcers \nCtrl+C to exit shell.")
             print(Colors.green + "")
-            os.chdir('./tools/FileBruteforcers')
+            os.chdir(os.path.join(HOME, 'tools', 'FileBruteforcers'))
             subprocess.run(['python3','pdfbrute.py']) 
             subprocess.call(['bash']) 
             sys.exit() 
@@ -412,7 +413,7 @@ def sqlmap():
         try:
             print(Colors.yellow + "Starting shell in ./tools/sqlmap-dev \nType 'exit' to exit.")
             print(Colors.cyan + """Example Usage: python3 sqlmap -u "http://192.168.1.250/?p=1&forumaction=search" --dbs """)
-            os.chdir('./tools/sqlmap-dev')
+            os.chdir(os.path.join(HOME, 'tools', 'sqlmap-dev'))
             subprocess.run(['python3','sqlmap.py','-h']) 
             subprocess.call(['bash']) 
             sys.exit() 
@@ -431,7 +432,7 @@ def sqlmap():
             main()
         else:
             print(Colors.green + " Invalid choice. Enter 'y' or 'n'.\n >>> ")
-            sqlmal()
+            sqlmap()
 
 def choose_theme():
     theme = load_theme()
@@ -564,7 +565,7 @@ def choose_theme():
         if theme_choice in themes:
             selected_theme = themes[theme_choice]
             try:
-                with open('theme.json', 'w') as file:
+                with open(os.path.join(HOME, 'theme.json'), 'w') as file:
                     json.dump({"theme": selected_theme}, file)
                 choose_theme()  
                 break
