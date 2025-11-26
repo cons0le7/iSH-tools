@@ -577,7 +577,7 @@ def choose_theme():
             if warning == 'y':
                 selected_theme = "reset"
                 try:
-                    with open('theme.json', 'w') as file:
+                    with open(os.path.join(HOME, 'theme.json'), 'w') as file:
                         json.dump({"theme": selected_theme}, file)
                     choose_theme()  
                     break
