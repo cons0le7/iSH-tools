@@ -25,7 +25,7 @@ def install_true(key_to_update):
         json.dump(data, file, indent=4)
 
 def check_install(filename='check.json'):
-    filepath = os.path.join(HOME, filename)  # or 'iSH-tools/check.json' if that's correct
+    filepath = os.path.join(HOME, filename) 
     with open(filepath, 'r') as f:
         data = json.load(f)
     return data
@@ -35,7 +35,7 @@ def tool_installed(tool_id):
     return tools_status['tools'].get(tool_id, False)
 
 def install_tool(tool_sh):
-    script_path = os.path.join(HOME, 'tools', tool_sh)  # remove extra iSH-tools
+    script_path = os.path.join(HOME, 'tools', tool_sh) 
     try:
         with subprocess.Popen(['bash', script_path], stdout=subprocess.PIPE, text=True) as process:
             while True:
