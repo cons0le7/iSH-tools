@@ -274,6 +274,7 @@ def xsstrike():
     if tool_installed("9"):
         try:
             print(Colors.yellow + "\nStarting shell in ./tools/XSStrike \nType 'exit' to exit.")
+            print(Colors.cyan + """Example Usage: python3 xsstrike.py -u "http://example.com/vulnerable.php?param=test" -o results.txt \n""")
             print(Colors.green + "")
             os.chdir(os.path.join(HOME, 'tools', 'XSStrike'))
             subprocess.run(['python3','xsstrike.py']) 
@@ -412,7 +413,7 @@ def sqlmap():
     if tool_installed("10"):
         try:
             print(Colors.yellow + "Starting shell in ./tools/sqlmap-dev \nType 'exit' to exit.")
-            print(Colors.cyan + """Example Usage: python3 sqlmap -u "http://192.168.1.250/?p=1&forumaction=search" --dbs """)
+            print(Colors.cyan + """Example Usage: python3 sqlmap.py -u "http://192.168.1.250/?p=1&forumaction=search" --dbs """)
             os.chdir(os.path.join(HOME, 'tools', 'sqlmap-dev'))
             subprocess.run(['python3','sqlmap.py','-h']) 
             subprocess.call(['bash']) 
